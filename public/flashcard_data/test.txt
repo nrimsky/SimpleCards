@@ -1,0 +1,76 @@
+
+
+Lempel-Ziv coding: A [] is initialised to contain the [] strings corresponding to all the possible [] characters. The algorithm works by scanning through the input string for successively [] [] until it finds one that is not in the dictionary. When such a string is found, the index for the string without the last character (i.e., the longest substring that is in the dictionary) is retrieved from the dictionary and [] to [], and the new string (including the last character) is added to the [] with the next available code. The last input character is then used as the next starting point to scan for substrings. in this way, successively [] strings are registered in the [] and available for subsequent encoding as single [] [].
+-----Lempel-Ziv coding: A dictionary is initialised to contain the single-character strings corresponding to all the possible input characters. The algorithm works by scanning through the input string for successively longer substrings until it finds one that is not in the dictionary. When such a string is found, the index for the string without the last character (i.e., the longest substring that is in the dictionary) is retrieved from the dictionary and sent to output, and the new string (including the last character) is added to the dictionary with the next available code. The last input character is then used as the next starting point to scan for substrings. in this way, successively longer strings are registered in the dictionary and available for subsequent encoding as single output values.
+
+
+Lempel Ziv coding works best on data with [] patterns, so the initial parts of a message see [] []. As the message grows, however, the compression ratio tends [] to the [].
+-----Lempel Ziv coding works best on data with repeated patterns, so the initial parts of a message see little compression. As the message grows, however, the compression ratio tends asymptotically to the maximum.
+
+
+With a Markov chain x to y to z, if you know y then [] z gives you no [] [] about x
+-----With a Markov chain x to y to z, if you know y then observing z gives you no additional information about x
+
+
+With a Markov chain x to y to z, if you know y then [] x gives you no [] [] about z
+-----With a Markov chain x to y to z, if you know y then observing x gives you no additional information about z
+
+
+With a Markov chain x to y to z, I(x;z|y) = [] <to H([]) = H([])
+-----With a Markov chain x to y to z, I(x;z|y) = 0 <to H(z|y) = H(z|x,y)
+
+
+Recovering [] from a [] is a good model for machine learning / data science task were we want to estimate the [] of something given an [] effect (x to y to z where z in an estimate of x)
+-----Recovering data from a channel is a good model for machine learning / data science task were we want to estimate the value of something given an observable effect (x to y to z where z in an estimate of x)
+
+
+Markov chain property is [] (x to y to z <to z to y to x)
+-----Markov chain property is symmetrical (x to y to z <to z to y to x)
+
+
+If x to y to z, I([]) \geq I([]) and I([]) \geq I([])
+-----If x to y to z, I(x;y) \geq I(x;z) and I(x;y) \geq I(x;y | z)
+
+
+Data processing theorem in words
+-----Given a Markov chain x to y to z,
+- Processing y cannot add new information about x
+- Knowing z does not increase the amount y tells you about x
+
+
+Meaning of "sufficient statistic" given Markov chain x to y to z
+------ z contains all the information in y about x
+- preserves mutual information I(x;y) = I(x;z)
+
+
+In information theory, Fano's inequality relates the [] information lost in a [] [] to the [] of the categorisation error. It is used to find a [] [] on the error probability of any decoder as well as the [] [] for minimax risks in density estimation.
+-----In information theory, Fano's inequality relates the average information lost in a noisy channel to the probability of the categorisation error. It is used to find a lower bound on the error probability of any decoder as well as the lower bounds for minimax risks in density estimation.
+
+
+Let the random variables X and Y represent input and output messages with a joint probability P(x,y). Let e represent an occurrence of error; i.e., that X != X', with X' = f(Y) being an approximate version of X. Fano's inequality is []
+-----Let the random variables X and Y represent input and output messages with a joint probability P(x,y). Let e represent an occurrence of error; i.e., that X != X', with X' = f(Y) being an approximate version of X. Fano's inequality is
+H(X|Y) \leq H(P_e)+P(e)\log ( |X| - 1 )
+
+
+How to use Fano's inequality to compute the lower bound on the probability of error p_e
+-----p_e \geq (H(x|y) - H(p_e))/ \log (|X| - 1)
+
+
+Weaker version of Fano's inequality that does not depend on p_e which can be used to get probability of error
+-----p_e \geq (H(x|y) - 1)/ \log (|X| - 1)
+
+
+Asymptotic Equipartition Principle (AEP)
+-----Although there are many series of results that may be produced by a random process, the one actually produced is most probably from a loosely defined set of outcomes that all have approximately the same chance of being the one actually realised. -1/n log p(x) convergences in probability to H(x).
+
+
+Typicality
+-----A measure of how well a category member represents that category (in Information Theory this means how message symbol frequency matches source symbol frequency).
+
+
+Convergence in probability
+-----The probability of an "unusual" outcome becomes smaller and smaller as the sequence progresses. An estimator is called consistent if it converges in probability to the quantity being estimated. Convergence in probability is also the type of convergence established by the weak law of large numbers.
+
+
+A sequence {X_n} of random variables converges in probability towards the random variable X if \forall ε > 0 if:
+-----

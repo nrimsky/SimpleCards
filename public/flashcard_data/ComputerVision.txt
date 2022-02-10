@@ -1,0 +1,189 @@
+[] [] augmented with points at infinity is known as the [] [] 
+-----Ordinary plane augmented with points at infinity is known as the projective plane
+
+
+Why are homogeneous coordinates practical? 
+-----Unification of the translation, scaling and rotation of geometric objects
+
+
+In homogenous coordinates, the plane at infinity is usually identified with the set of [] [] [] = [] 
+-----In homogenous coordinates, the plane at infinity is usually identified with the set of points with k = 0
+
+
+The conversion of a homogeneous point to its Euclidean equivalent is inherently a [] of the homogenous point onto the [] plane 
+-----The conversion of a homogeneous point to its Euclidean equivalent is inherently a projection of the homogenous point onto the k = 1 plane
+
+
+Translation invariants 
+------ Orientation
+- Length
+- Angle
+- Length ratio
+- Parallel lines
+
+
+Euclidean transformation invariants 
+------ Length
+- Angle
+- Length ratio
+- Parallel lines
+
+
+Similarity transform components 
+-----Rotation, scaling, translation
+
+
+Similarity transform invariants 
+------ Angle
+- Length Ratio
+- Parallel lines
+
+
+Difference between similarity and affine transforms 
+-----Affine transforms allow non-isotropic scaling which means you can scale by different amounts in the x and y directions
+
+
+Affine transforms invariants 
+------ Parallel lines
+
+
+Projective transforms invariants 
+-----None
+
+
+Why can't all projective transforms be represented by affine transforms? 
+-----This is because projective transforms are non linear. They have 8 degrees of freedom and therefore can only be approximated by affine transforms, which have 6 degrees of freedom.
+
+
+How best to approximate projective transformation when you have only 6 degrees of freedom? 
+-----Use many local coordinate frames with locally defines affine transformations. This makes the x and y coordinates smaller so the perspective distortion in much smaller.
+
+
+Finding correspondences between images consists of... 
+-----Extracting and matching key points
+
+
+Correspondence definition 
+-----Pair of points that result from the same point in 3D space
+
+
+What is a common way of computing similarity between keypoints? 
+-----l2 distance between colour histograms (can then do nearest neighbour search between options)
+
+
+How many correspondences do you need to get the correct affine transformation matrix? 
+-----Each correspondence gives you two equations and you need as many equations as unknowns which means you need 3 correspondences to find all the 6 parameters of the affine transformation.
+
+
+Diagram of perfect pinhole camera model 
+-----
+
+
+Normalised image plane definition 
+-----The normalised image plane is parallel to the physical retina (CCD) but located at unit distance ( z = 1) from the pinhole
+
+
+Camera calibration (or "resectioning") definition 
+-----Camera calibration is the process of estimating the parameters of a pinhole camera model approximating the camera that produced a given photograph or video. Usually, the pinhole camera parameters are represented in a 3 × 4 matrix called the camera matrix.
+
+
+What is the difference between the camera matrix of a perfect camera and a real life camera? 
+-----In an ideal pinhole camera, a simple projection matrix is enough, and the only parameter of interest is the focal length. With more complex camera systems, errors resulting from misaligned lenses and deformations in their structures can result in more complex distortions in the final image.
+
+
+The camera [] matrix is derived from the [] and [] parameters of the camera, and is often represented by the series of transformations; e.g., a matrix of camera intrinsic parameters, a 3 × 3 [] matrix, and a [] vector. 
+-----The camera projection matrix is derived from the intrinsic and extrinsic parameters of the camera, and is often represented by the series of transformations; e.g., a matrix of camera intrinsic parameters, a 3 × 3 rotation matrix, and a translation vector.
+
+
+How can we break down the camera matrix M? 
+-----KRt where K is the intrinsic parameters, R is the rotation between the world and camera coordinate systems and t is the translation of the optical centre from the origin of the world coordinates
+
+
+Given camera matrix M = K[Rt], what are the parameters of interest in K (given a non-perfect camera model)? 
+------ Focal length f
+- Principal point $c_0 = (x_0, y_0)$
+- Pixel size $(s_x, s_y)$
+
+
+Principle point definition 
+-----Projection of the camera centre on the actual image
+
+
+How to we estimate the camera matrix parameters? 
+-----Use a calibration grid in order to find correspondences between points in 3D space and points in the image. Use these correspondences to derive equations that can be solved (in a non-exact way for example using SVD) to obtain the parameters.
+
+
+How can we get the intrinsic parameters of the camera from the camera matrix? 
+-----A is first part of M (3x3)
+B is last vector of M (3 x 1)
+
+
+Three camera distortions 
+------ Chromatic aberration
+- Spherical aberration
+- Radial distortion
+
+
+Chromatic aberration 
+-----Problem of the lens caused by the fact that light rays of different wavelengths or different colour are refracted in a different way. Can cause discolouration and blur at the edges.
+
+
+Spherical aberration 
+-----A problem of the lens caused by the fact that the boundaries of the lens focus the light a bit more the middle of the lens. This results in a blur nearer the boundaries.
+
+
+Barrel Distortion 
+-----A lens defect that causes straight lines to bow out toward the edges of the image.
+
+
+Pincushion Distortion 
+-----bending of straight lines at periphery of the image
+
+
+What is a problem with matching keypoints? 
+-----You need to detect outliers / incorrectly matched points
+
+
+Stereo vision 
+-----Using the combined points of view from two eyes / cameras
+
+
+Anaglyphs 
+-----A stereoscopic photograph with the two images superimposed and printed in different colours, producing a stereo effect when the photograph is viewed through correspondingly coloured filters
+
+
+Disparity (stereo vision) 
+-----The difference in image location of the same 3D point when projected under perspective to two difference cameras. d = xleft - xright
+
+
+How does perception of depth arise? 
+-----Perception of depth arises from disparity of a given 3D point in your left and right retinal images
+
+
+Baseline (stereo vision) 
+-----Distance between cameras
+
+
+What are the 2 main problems of stereo setup? 
+-----1. Need to know focal length f and baseline b, which involves prior knowledge or camera calibration 
+2. Need to find corresponding point $(x_r, y_r)$ for each $(x_l, y_l)$ which is a correspondence problem
+
+
+Epipolar Geometry 
+-----Epipolar geometry is the geometry of stereo vision. When two cameras view a 3D scene from two distinct positions, there are a number of geometric relations between the 3D points and their projections onto the 2D images that lead to constraints between the image points. These relations are derived based on the assumption that the cameras can be approximated by the pinhole camera model.
+
+
+Epipolar plane 
+-----Plane that passes through the point in 3D space and the two camera centres
+
+
+Epipolar plane is the plane connecting C1, C2 and point P. Epipolar plane cuts through [] planes forming epipolar line in each plane. Corresponding points P1 and P2 must lie on their [] []. 
+-----Epipolar plane is the plane connecting C1, C2 and point P. Epipolar plane cuts through image planes forming epipolar line in each plane. Corresponding points P1 and P2 must lie on their epipolar lines.
+
+
+Stereo rectification 
+-----Reproject image plane onto a common plane parallel to the line between the optical centres.
+
+
+Why is it easier to search for correspondences after stereo rectification? 
+-----After rectification we only need to search for correspondences along horizontal scan line

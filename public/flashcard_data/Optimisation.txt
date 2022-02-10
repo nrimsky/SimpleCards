@@ -1,0 +1,262 @@
+Global minimiser
+-----A point $x \in F$ is a global minimiser iff $f(x) \leq f(y) \forall y \in F$
+
+
+Strict global minimiser
+-----A point $x \in F$ is a strict global minimiser iff $f(x) < f(y) \forall y \in F$
+
+
+Local minimiser
+-----Given $P_1$, a point $x \in F$ is a local minimiser if there exists a $\rho > 0$ such that $f(x) \leq f(y) \forall y \in F$ and $||y-x|| < \rho$
+
+
+Strict local minimiser
+-----Given $P_1$, a point $x \in F$ is a local minimiser if there exists a $\rho > 0$ such that $f(x) < f(y) \forall y \in F$, $y != x$ and $||y-x|| < \rho$
+
+
+Theorem: Let $f: R^n \rightarrow R$. Assume that $f$ is [] ($C^0$). Suppose that $F$ is []. Then there exists a [] [] for $f \in F$.
+-----Theorem: Let $f: R^n \rightarrow R$. Assume that $f$ is continuous ($C^0$). Suppose that $F$ is compact. Then there exists a global minimiser for $f \in F$.
+
+
+A set $F$ is compact if it is...
+-----Closed and bounded
+
+
+A set $F$ is closed if...
+-----Its boundary is in the set
+
+
+A set $F \in R^n$ is bounded if...
+-----it is centred in a ball of some radius $R > 0$ centred at the origin
+
+
+$C^1$
+-----If vector $\nabla f$ is defined and continuous then we say $f \in C^1$
+
+
+$C^2$
+-----If $n \times n$ symmetric matrix $\nabla^2 f$ (Hessian of $f$) is defined and continuous then we say $f \in C^2$
+
+
+Number of functions in the Hessian matrix of a function of $n$ variables
+-----$n^2$
+
+
+Number of functions in the gradient vector of a function of $n$ variables
+-----$n$
+
+
+Level set
+-----Given $f: R^n \rightarrow R$. Suppose the function $f$ is continuous. A level set of $f$ is any non empty set described by the relation $L(\alpha) = { x \in R^n: f(x) \leq \alpha }$ with $\alpha \in R$
+
+
+Consider a function $f: R^n \rightarrow R$ and suppose it is []. Supposed there exists a point $x_0$ such that $L(f(x_0)))$ is []. Then the function $f$ has a [] [] which is [] in $L(f(x_0))$.
+-----Consider a function $f: R^n \rightarrow R$ and suppose it is continuous. Supposed there exists a point $x_0$ such that $L(f(x_0)))$ is compact. Then the function $f$ has a global minimiser which is contained in $L(f(x_0))$.
+
+
+The fact that level sets are [] has to do with [] of $f$.
+-----The fact that level sets are compact has to do with properties of $f$.
+
+
+Suppose we have $f: R^n \rightarrow R$, continuous. All level sets of $f$ are compact iff...
+-----for any sequence ${x_k}$ we have the property $\lim_{k \rightarrow \infty} f(x_k) = +\infty$
+
+
+Problem: min $f(x)$, $x \in R^n$, $f \in C$ has a solution if...
+-----there exists $x_0$ such that $L(f(x_0))$ is compact .
+
+
+Descent direction
+-----Given a direction $d \in R^n$, $d$ is a descent direction for $f$ at $x^* $ if there exists $\delta > 0$ such that $f(x^*  + \lambda d) < f(x^* ) \forall \lambda \in (0, \delta)$.
+
+
+Why in theory would you need to naively test infinitely many points to determine if a direction is a descent direction?
+-----We would be checking $f(x^*  + \lambda d) < f(x^* ) \forall \lambda \in (0, \delta)$, where $(0, \delta)$ is a continuous set meaning it has infinitely many points.
+
+
+Given $f: R^n \rightarrow R$. Assume that $f \in C^1$. Given $x^* $ and $d$. Then if [] $\leq$ [], $d != 0$, $d$ is a descent direction for $f$ at $x^* $
+-----Given $f: R^n \rightarrow R$. Assume that $f \in C^1$. Given $x^* $ and $d$. Then if $\nabla^T f(x^* ) d \leq \nabla f(x^* )$, $d != 0$, $d$ is a descent direction for $f$ at $x^* $
+
+
+Directional Derivative
+-----$\nabla^T f(x^* )d$ is the directional derivative of $f$ along $d$ at $x$
+
+
+The gradient $\nabla f$ of a function $f$ at $x$ is [] to the [] of the [] [] $f(x) = 0$ of the function at $x$.
+-----The gradient $\nabla f$ of a function $f$ at $x$ is perpendicular to the tangent of the level set $f(x) = 0$ of the function at $x$.
+
+
+$<\nabla f(x^* ), d>$ =
+-----$|| \nabla f(x^* ) || \cdot || d || \cos(\theta)$
+
+
+Given $C^1$ $f$ $R^n \Rightarrow R$, the point $x^* $ is a [] [] of $f$ iff $\nabla f(x^* )$ = []
+-----Given $C^1$ $f$ $R^n \Rightarrow R$, the point $x^* $ is a local minimiser of $f$ iff $\nabla f(x^* ) = 0$
+
+
+Not all points for which $\nabla f(x^* ) = 0$ are [] [] of $f$, which means this is a [] but not [] condition
+-----Not all points for which $\nabla f(x^* ) = 0$ are local minimisers of $f$, which means this is a necessary but not sufficient condition
+
+
+Local minimisers of $f$ belong to the set of points...
+-----$\Omega = {x \in R^n :\nabla f(x) = 0 }$
+
+
+$\Omega = {x \in R^n :\nabla f(x) = 0 }$ is called...
+-----the set of stationary points of $f$
+
+
+A saddle point is a [] in one [] and a [] in another []
+-----A saddle point is a minimiser in one direction and a maximiser in another direction
+
+
+Why is $\nabla f(x^* ) = 0$ for all local minimisers? (proof by contradiction)
+-----Given $x^* $ and suppose it is a local minimiser. Suppose $\nabla f(x^* ) != 0$. Then I can find a descent direction for $f$ at $x^* $, for example $d = -\nabla f(x^* )$. This means that close to $x^* $ there are points $x'$ such that $f(x') < f(x^* ) \Rightarrow x^* $ is not a minimum (contradiction).
+
+
+How do we remove saddle points for the candidate optimal solutions?
+-----Use second order derivative
+
+
+Second order necessary condition for $f \in C^2$
+-----$x^* $ is a local minimiser of f iff $\nabla f(x^* ) = 0$ and $x^T \nabla^2 f(x^* ) x \geq 0 \forall x \in R^n$
+
+
+Taylor series expansion of $f(x^*  + \lambda x)$
+-----$f(x^* ) + \nabla^T f(x^* ) x$ $+ (1/2) \lambda^2 x^T \nabla^2 f(x^* ) x$ $+ \text{H.O.T} = f(x^* ) + 0 +$ $(1/2) \lambda^2 x^T \nabla^2 f(x^* ) x + \text{H.O.T}$
+
+
+What is the quadratic form?
+-----Given symmetric matrix M. We define the quadratic form to be $x^T M x$.
+
+
+What holds for a symmetric matrix?
+-----$M = M^T$
+
+
+Any matrix $M'$ can be written as $M_s + M_a$ where $M_s =$ [] and $M_a =$ [] ($M_s$ is [] and $M_a$ is []). We can get $M_s$ using [] and $M_a$ using [].
+-----Any matrix $M'$ can be written as $M_s + M_a$ where $M_s = M_s^T$ and $M_a = -M_a^T$ ($M_s$ is symmetric and $M_a$ is antisymmetric). We can get $M_s$ using $(M' + M'^T)/2$ and $M_a$ using $(M' - M'^T)/2$.
+
+
+Positive semidefinite
+-----$M \geq 0; x^T M x \geq 0 \forall x$
+
+
+Positive definite
+-----$M > 0; x^T M x > 0 \forall x != 0$
+
+
+Negative definite
+-----$M < 0; x^T M x < 0 \forall x$
+
+
+Negative semidefinite
+-----$M \leq 0; x^T M x \leq 0 \forall x$
+
+
+Indefinite
+-----$x^T M x = 0$
+
+
+If $M$ is symmetric, all eigenvalues of $M$ are []
+-----If $M$ is symmetric, all eigenvalues of $M$ are real
+
+
+How do we know the sign of the eigenvalues given $M$?
+-----We see if M is positive definite / semidefinite, negative definite / semidefinite or indefinite and the same fact applies to the eigenvalues. E.g. if positive definite, all eigenvalues > 0. For indefinite we have both positive and negative eigenvalues.
+
+
+What tends to zero involving the Lagrange Remainder as $\lambda \rightarrow 0$?
+-----$\text{H.O.T} / (\lambda^2 || x ||^2) \rightarrow 0$
+
+
+$f: R^n \rightarrow R$ and $C^2$. $x^* $ is a strict [] minimiser of $f$ if $\nabla f(x^* ) = 0$ and $\nabla^2 f(x^* ) > 0$ (is strictly [] []).
+-----$f: R^n \rightarrow R$ and $C^2$. $x^* $ is a strict local minimiser of $f$ if $\nabla f(x^* ) = 0$ and $\nabla^2 f(x^* ) > 0$ (is strictly positive definite).
+
+
+The condition $\nabla^2 f(x^* ) > 0$ implies that [] for all $y$ sufficiently close to $x$.
+-----The condition $\nabla^2 f(x^* ) > 0$ implies that $\nabla^2 f(y) > 0 \forall y$ sufficiently close to $x$.
+
+
+Lagrange Remainder
+-----$1/2 (y - x^* )^T \nabla^2 f(\xi) (y - x^* )$
+
+
+Why do we use the Taylor series expansion?
+-----We know the value of a function at some point x and we want to know the value of the same function at another point y
+
+
+The point $\xi$ in the Lagrange remainder expression $1/2 (y - x^* )^T \nabla^2 f(\xi) (y - x^* )$ is on a [] line between [] and [].
+-----The point $\xi$ in the Lagrange remainder expression $1/2 (y - x^* )^T \nabla^2 f(\xi) (y - x^* )$ is on a straight line between $x^* $ and $y$.
+
+
+Because of the sufficient condition of optimality, the point [] in the Taylor series expansion has to be [] point, and so the [] at that point is equal to 0.
+-----Because of the sufficient condition of optimality, the point $x^* $ in the Taylor series expansion has to be stationary point, and so the gradient at that point is equal to 0.
+
+
+Because of the continuity argument, if $y$ is sufficiently close to $x^* $ then [] in the [] [] $1/2 (y - x^* )^T \nabla^2 f(\xi) (y - x^* )$ will also be sufficiently close to $x^* $. This means that the quantity [] is also positive definite.
+-----Because of the continuity argument, if $y$ is sufficiently close to $x^* $ then $\xi$ in the Lagrange remainder $1/2 (y - x^* )^T \nabla^2 f(\xi) (y - x^* )$ will also be sufficiently close to $x^* $. This means that the quantity $\nabla^2 f(\xi)$ is also positive definite.
+
+
+Taylor series expansion of function given $x^* $ is satisfies the sufficient conditions of optimality
+-----$f(y) = f(x^* ) + 1/2 (y - x^* )^T \nabla^2 f(\xi) (y - x^* )$
+
+
+$f(y) - f(x^* )$
+-----$1/2 (y - x^* )^T \nabla^2 f(\xi) (y - x^* )$ (Lagrange remainder of Taylor series expansion)
+
+
+$f(y) - f(x^* )$ is [] [] for $y != x^* $. This means that $f(y)$ [] $f(x^* ) \forall y != x^* $. Hence $x^* $ is a [] [] of $f$.
+-----$f(y) - f(x^* )$ is strictly positive for $y != x^* $. This means that $f(y) > f(x^* ) \forall y != x^* $. Hence $x^* $ is a local minimiser of $f$.
+
+
+Sufficient conditions of optimality provide a [] of the []. This is because we may have a non-strict minimiser or additional minimisers.
+-----Sufficient conditions of optimality provide a subset of the solutions. This is because we may have a non-strict minimiser or additional minimisers.
+
+
+For convex functions, the [] conditions of optimality are also [].
+-----For convex functions, the necessary conditions of optimality are also sufficient.
+
+
+Given $f: R^n \rightarrow R$ and $f$ is $C^1$. The function $f$ is convex if...
+-----$f(y) - f(x) \geq \nabla f(x)^T (y-x)$ holds for all $x$ and $y$
+
+
+$f(y) - f(x) \geq \nabla f(x)^T (y-x)$ geometric interpretation
+-----Curve sits above a "basket" of tangent lines. Epigraph of $f$ is a convex set.
+
+
+$f: R^n \rightarrow R$, $C^1$ and convex. $x^*$ is a global minimiser of $f$ iff ...
+-----$\nabla f(x^* ) = 0$
+
+
+Generic optimisation algorithm assumptions
+-----Given $f: R^n \rightarrow R$ Assume: 1) $f \in C^2$  2) there exists a solution to minimising $f(x)$  3) (the level set for the initial guess) $L(f(x_0))$ is compact [this means there is a global minimiser and this solution is a stationary point]
+
+
+Optimisation algorithm (most generic definition)
+-----An optimisation algorithm is a sequence ${x_k}$ obtained from $x_0$ which has some convergence properties with respect to set $\Omega$ (the set of stationary points).
+
+
+Optimisation algorithm (second most generic definition)
+-----1) Given $x_k$  2) Check if $x_k \in \Omega$, and if yes stop  3) Select a direction $d_k$  4) Select a step $\alpha_k$ along $d_k$  5) Pick $x_k+1 = x_k+ \alpha_k d_k$  6) Repeat
+
+
+Issues with sequence ${x_k}$ given $a_k$ and $d_k$:
+------ existence of limit points for ${x_k}$, behaviour of the limit points in relation to $\Omega$, speed of convergence to $\Omega$
+
+
+Bounded Sequence
+-----A sequence $X = {x_n}$ of real numbers is said to be bounded if there exists a real number $M > 0$ such that $|x_n| \leq M \forall n \in N$.
+
+
+Which kind of sequence has converging subsequences?
+-----Bounded sequences
+
+
+Descent condition: If $f(x_k+1)$ is always [] than $f(x_k)$ then ${x_k}$ belongs to the level set $L(f(x_0))$ which means $||x_k|| \leq M$ which means the sequence is [] and there are [] subsequences.
+-----Descent condition: If $f(x_k+1)$ is always smaller than $f(x_k)$ then ${x_k}$ belongs to the level set $L(f(x_0))$ which means $||x_k|| \leq M$ which means the sequence is bounded and there are converging subsequences.
+
+
+Condition of angle
+-----A descent direction $d_k$ satisfies a condition of angle if there exists a number $\epsilon > 0$ such that: $\nabla f^T(x_k)d_k \leq -\epsilon ||\nabla f(x_k)|| ||d_k||$
