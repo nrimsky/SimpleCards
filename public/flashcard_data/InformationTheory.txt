@@ -93,7 +93,7 @@ What is the independence bound
 -----$H(X_{1:n}) = \sum_{1 \rightarrow n}H(X_i | x_{1:i-1})$ $\leq \sum_{1 \rightarrow n}H(X_i)$
 
 
-Entropy of s\rightarrowchastic process
+Entropy of Stochastic process
 -----$H({x_i}) = H(x_1) + H(x_2|x_1) +$ ...
 
 
@@ -105,7 +105,7 @@ Entropy rate estimates the [] [] per [] []
 -----Entropy rate estimates the additional entropy per new sample
 
 
-S\rightarrowchastic process {x_i} is stationary iff
+Stochastic process ${x_i}$ is stationary iff
 -----$p(x_{1:n} = a_{1:n}) = p(x_k+1:n = a_{1:n})$ $\forall k, n, a_i \in X$
 
 
@@ -165,7 +165,7 @@ Kraft Inequality
 
 
 McMillan Inequality
------If uniquely decodable $C$ has codeword lengths $l1, l2, ..., l|X|$ then $\sum_{i = 1 \rightarrow |X|} D^$-l_i$ \leq 1$
+-----If uniquely decodable $C$ has codeword lengths $l1, l2, ..., l|X|$ then $\sum_{i = 1 \rightarrow |X|} D^{-l_i} \leq 1$
 
 
 Implication of McMillan Inequality
@@ -173,7 +173,7 @@ Implication of McMillan Inequality
 
 
 What is the simplified optimisation problem for finding the optimal codes?
------We simplify by considering non-integer $l_i$. Minimise $\sum_{1 \rightarrow |X|} p(x_i)l_i$ subject to $\sum_{1 \rightarrow |X|} D^$-l_i$ = 1$
+-----We simplify by considering non-integer $l_i$. Minimise $\sum_{1 \rightarrow |X|} p(x_i)l_i$ subject to $\sum_{1 \rightarrow |X|} D^{-l_i} = 1$
 
 
 Bounds on Optimal Code Length
@@ -212,8 +212,8 @@ O(N) to read file and compute character frequencies.
 O(C log C) to create optimal code. 
 
 
-Shannon-Fano codes are suboptimal \in the sense that they do not always achieve the [] possible expected codeword [], as [] coding does. However, Shannon-Fano codes have an expected codeword length within [] [] of optimal. Fano's method usually produces encoding with [] expected lengths than Shannon's method.
------Shannon-Fano codes are suboptimal \in the sense that they do not always achieve the lowest possible expected codeword length, as Huffman coding does. However, Shannon-Fano codes have an expected codeword length within 1 bit of optimal. Fano's method usually produces encoding with shorter expected lengths than Shannon's method.
+Shannon-Fano codes are suboptimal in the sense that they do not always achieve the [] possible expected codeword [], as [] coding does. However, Shannon-Fano codes have an expected codeword length within [] [] of optimal. Fano's method usually produces encoding with [] expected lengths than Shannon's method.
+-----Shannon-Fano codes are suboptimal in the sense that they do not always achieve the lowest possible expected codeword length, as Huffman coding does. However, Shannon-Fano codes have an expected codeword length within 1 bit of optimal. Fano's method usually produces encoding with shorter expected lengths than Shannon's method.
 
 
 Issues with Huffman Coding
