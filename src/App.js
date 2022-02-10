@@ -33,7 +33,9 @@ function FlashCards(props) {
 
   return (
     <div>
-      <p className="flashcard-title">{props.filename.split(".")[0]}</p>
+      <p className="flashcard-title">
+        {props.filename.split(".")[0]} {`(${props.cards.length})`}
+      </p>
       <div
         className={`flashcard ${front ? "" : "flashcard-back"}`}
         onClick={flip}
@@ -78,10 +80,7 @@ function App() {
   return (
     <div>
       <div className="title">
-        <p>
-          SimpleCards - some random flashcards, formatted with{" "}
-          <Latex>$\LaTeX$</Latex>. Because flashcard apps annoy me.
-        </p>
+        <p>Some random flashcards</p>
 
         <button
           onClick={() => {
