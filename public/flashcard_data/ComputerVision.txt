@@ -75,10 +75,6 @@ How many correspondences do you need to get the correct affine transformation ma
 -----Each correspondence gives you two equations and you need as many equations as unknowns which means you need 3 correspondences to find all the 6 parameters of the affine transformation.
 
 
-Diagram of perfect pinhole camera model 
------
-
-
 Normalised image plane definition 
 -----The normalised image plane is parallel to the physical retina (CCD) but located at unit distance ( z = 1) from the pinhole
 

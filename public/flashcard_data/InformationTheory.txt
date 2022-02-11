@@ -30,8 +30,8 @@ Average Row Entropy
 -----Take the weighted avg of each row using $p(x)$ as a weight
 
 
-$H(X_{1:n}$
------$H(X_{1:n}$ $= \sum_{1 \rightarrow i} H(x_i | x_{1:i-1})$
+$H(X_{1:n})$
+-----$H(X_{1:n})$ $= \sum_{1 \rightarrow i} H(x_i | x_{1:i-1})$
 
 
 Conditional Mutual Information
@@ -71,7 +71,7 @@ Relative Entropy definition
 
 
 Why is $D(p||q)$ not a true distance?
------ It is asymmetric between p and q; It does not satisfy the triangle inequality
+-----It is asymmetric between p and q; It does not satisfy the triangle inequality
 
 
 Relative Entropy formula
@@ -83,10 +83,7 @@ Information (Gibbs') Inequality
 
 
 Information Inequality Corollaries
------ Uniform distribution has the highest entropy
-- Mutual Information is non-negative
-- Conditioning reduces entropy
-- Independence bound
+-----Uniform distribution has the highest entropy; Mutual Information is non-negative; Conditioning reduces entropy; Independence bound
 
 
 What is the independence bound
@@ -98,7 +95,7 @@ Entropy of Stochastic process
 
 
 Entropy rate
------$H(X) = lim_{n \rightarrow \infty}1/n H(x_{1:n})$ if limit exists
+-----$H(X) = lim_{n \rightarrow \infty} \dfrac{1}{n} H(x_{1:n})$ if limit exists
 
 
 Entropy rate estimates the [] [] per [] []
@@ -126,22 +123,19 @@ $p_s$ is the eigenvector of [] with $\lambda$ = []
 
 
 Entropy of stationary process
------$H(x) = lim_{n \rightarrow \infty}H(x_n | x_{1:n}-1)$
+-----$H(x) = lim_{n \rightarrow \infty}H(x_n | x_{1:n-1})$
 
 
 Entropy of stationary Markov process
------$H(x) = H(x_n | x_n-1)$ $= \sum_{i,j} -p_{Si} t_{ij} \log (t_{ij})$
+-----$H(x) = H(x_n | x_{n-1})$ $= \sum_{i,j} -p_{Si} t_{ij} \log (t_{ij})$
 
 
 Source coding theorem
------n i.i.d rv's each with entropy $H(X)$ can be compressed into more than $nH(X)$ bits as $n \rightarrow \infty$
+-----$n$ i.i.d rv's each with entropy $H(X)$ can be compressed into more than $nH(X)$ bits as $n \rightarrow \infty$
 
 
 Source code
------ $C$ is a mapping $X \rightarrow D+$ 
-- $X$ is a rv of the message 
-- $D+$ is the set of all final length strings from $D$ 
-- $D$ is often binary 
+-----$C$ is a mapping $X \rightarrow D+$, $X$ is a rv of the message, $D+$ is the set of all final length strings from $D$, $D$ is often binary 
 
 
 $C+$
@@ -161,7 +155,7 @@ How is a code tree used to create an instantaneous code?
 
 
 Kraft Inequality
------Limit of codeword lengths of instantaneous codes. For codeword lengths $l1, l2, ..., l|X|$ $\rightarrow$ $\sum_{i = 1 \rightarrow |X|} D^{-l_i} \leq 1$
+-----Limit of codeword lengths of instantaneous codes. For codeword lengths $l1, l2, ..., l|X|$ the sum $\sum_{i = 1 \rightarrow |X|} D^{-l_i} \leq 1$
 
 
 McMillan Inequality
@@ -299,3 +293,87 @@ Convergence in probability
 
 A sequence ${X_n}$ of random variables converges in probability towards the random variable $X$ if $\forall \epsilon > 0$ if:
 -----$\lim_{n \rightarrow \infty}Pr(|X_n - X| > \epsilon) = 0$
+
+
+Individual probability of an element of the typical set
+-----$x \in T_{\epsilon}^{(n)} \Rightarrow \log{p(x)} = -nH(x) \pm n\epsilon$
+
+
+Total probability in typical set
+-----$p(x \in T_{\epsilon}^{(n)}) \geq 1 - \epsilon \forall{n > N_{\epsilon}}$
+
+
+Size of typical set 
+-----$(1 - \epsilon)2^{n(H(x) - \epsilon)} \leq |T_{\epsilon}^{(n)}| \leq 2^{n(H(x) - \epsilon)}$
+
+
+Channel capacity definition in words
+-----The highest rate in bits per channel use that can be transmitted reliably; the maximum mutual information
+
+
+Source coding aim
+-----Compresses the data to remove redundancy
+
+
+Channel coding aim
+-----Adds redundancy / structure to protect against channel errors (an error correction code)
+
+
+Time-Invariant Transition-Probability matrix
+-----$(Q_{y | x})_{i, j} = p(y = y_j | x = x_i)$ which has size $|X| \times |Y|$
+
+
+Sum of rows of Transition-Probability matrix
+-----1
+
+
+Average column sum of Transition-Probability matrix
+-----$|X||Y|^{-1}$
+
+
+For a memoryless channel, $p(y_n | x_{1:n}, y_{1: n-1}) =$
+-----$p(y_n | x_{1:n}, y_{1: n-1}) = p(y_n|x_n)$
+
+
+Binary symmetric channel
+-----$X = [0 1], Y = [0 1]$ $Q = \begin{pmatrix}1-f&f\\f&1-f\end{pmatrix}$ ($f$ is probability of error)
+
+
+Binary erasure channel
+-----$X = [0 1], Y = [0 ? 1]$ (? is erasure) $Q = \begin{pmatrix}1-f&f&0\\0&f&1-f\end{pmatrix}$ ($f$ is probability of error)
+
+
+Z channel
+-----$X = [0 1], Y = [0 1]$ $Q = \begin{pmatrix}1&0\\f&1-f\end{pmatrix}$ ($f$ is probability of error)
+
+
+Difference between symmetric and weakly symmetric channels
+-----Symmetric: rows are permutations of each other; columns are permutations of each other. Weakly Symmetric: rows are permutations of each other; columns have the same sum.
+
+
+Weakly symmetric channel property consequences
+-----Rows are permutations of each other $\rightarrow$ if x is uniform then y is uniform; Columns have the same sum $\rightarrow$ each row of Q has the same entropy which is the average row entropy 
+
+
+Capacity of a DMC channel
+-----$C = \text{max}_{p_x} I(x; y)$
+
+
+Capacity for $n$ uses of DMC channel 
+-----$C^{(n)} = (1/n) \text{max}_{p_{x_{1:n}}} I(x_{1:n}; x_{1:n})$
+
+
+How to maximise $n$-use channel capacity
+-----We can maximise $I(\textbf{x};\textbf{y})$ by maximising each $I(x_i; y_i)$ independently and taking $x_i$ to be iid.
+
+
+Capacity of weakly symmetric channel
+-----$C = \log{|Y|} - H(Q_1)$ where $Q_1$ is the row entropy
+
+
+Capacity of binary symmetric channel
+-----$1 - H(f)$
+
+
+Capacity of binary erasure channel
+-----$C = 1 - f$

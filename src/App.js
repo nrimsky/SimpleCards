@@ -13,11 +13,16 @@ function getRandomInt(max) {
 
 function FlashCards(props) {
   const [front, setFront] = useState(true);
-
+  const [seeList, setSeeList] = useState(false);
   const [idx, setIdx] = useState(getRandomInt(props.cards.length));
   const flip = () =>
     setFront((f) => {
       return !f;
+    });
+
+  const toggleList = () =>
+    setSeeList((s) => {
+      return !s;
     });
 
   const next = () => {
@@ -31,25 +36,71 @@ function FlashCards(props) {
     setFront(true);
   };
 
+  const seeListButton = (
+    <p className="see-list" onClick={toggleList}>
+      {seeList ? "Hide list" : "See list"}
+    </p>
+  );
+
+  const title = (
+    <p className="flashcard-title">
+      {props.filename.split(".")[0]}{" "}
+      {seeList
+        ? `(${props.cards.length})`
+        : `(#${idx + 1}/${props.cards.length})`}
+    </p>
+  );
+
+  if (!seeList) {
+    return (
+      <div>
+        {title}
+        <div
+          className={`flashcard ${front ? "" : "flashcard-back"}`}
+          onClick={flip}
+        >
+          <p>
+            <Latex>{front ? props.cards[idx][0] : props.cards[idx][1]}</Latex>
+          </p>
+        </div>
+        <button onClick={next} className="flashcard-button">
+          Next <b>{"↪"}</b>
+        </button>
+        <button onClick={flip} className="flashcard-button">
+          Flip <b>{"⇅"}</b>
+        </button>
+        {seeListButton}
+      </div>
+    );
+  }
+
   return (
     <div>
-      <p className="flashcard-title">
-        {props.filename.split(".")[0]} {`(${props.cards.length})`}
-      </p>
-      <div
-        className={`flashcard ${front ? "" : "flashcard-back"}`}
-        onClick={flip}
-      >
-        <p>
-          <Latex>{front ? props.cards[idx][0] : props.cards[idx][1]}</Latex>
-        </p>
-      </div>
-      <button onClick={next} className="flashcard-button">
-        Next
-      </button>
-      <button onClick={flip} className="flashcard-button">
-        Flip
-      </button>
+      {title}
+      {seeListButton}
+      <table>
+        <thead>
+          <tr>
+            <th>Front</th>
+            <th>Back</th>
+          </tr>
+        </thead>
+        <tbody>
+          {props.cards.map((c, i) => {
+            return (
+              <tr key={i}>
+                <td>
+                  <Latex>{c[0]}</Latex>
+                </td>
+                <td>
+                  <Latex>{c[1]}</Latex>
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+      {seeListButton}
     </div>
   );
 }
@@ -66,7 +117,6 @@ function App() {
       return t.split(SPLIT_2).map((l) => l.split(SPLIT_1));
     });
     setData(flashData);
-    console.log(flashData);
   }
 
   useEffect(() => {
