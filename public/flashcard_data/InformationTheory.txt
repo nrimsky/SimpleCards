@@ -171,7 +171,7 @@ What is the simplified optimisation problem for finding the optimal codes?
 
 
 Bounds on Optimal Code Length
------$log_D(p(x_i)) \leq l_i \leq -log_D(p(x_i)) + 1$
+-----$-log_D(p(x_i)) \leq l_i \leq -log_D(p(x_i)) + 1$
 
 
 Average shortest length
@@ -291,7 +291,7 @@ Convergence in probability
 -----The probability of an "unusual" outcome becomes smaller and smaller as the sequence progresses. An estimator is called consistent if it converges in probability to the quantity being estimated. Convergence in probability is also the type of convergence established by the weak law of large numbers.
 
 
-A sequence ${X_n}$ of random variables converges in probability towards the random variable $X$ if $\forall \epsilon > 0$ if:
+A sequence $\{X_n\}$ of random variables converges in probability towards the random variable $X$ if $\forall \epsilon > 0$ if:
 -----$\lim_{n \rightarrow \infty}Pr(|X_n - X| > \epsilon) = 0$
 
 

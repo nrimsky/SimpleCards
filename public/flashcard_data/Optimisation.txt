@@ -59,7 +59,7 @@ The fact that level sets are [] has to do with [] of $f$.
 
 
 Suppose we have $f: R^n \rightarrow R$, continuous. All level sets of $f$ are compact iff...
------for any sequence ${x_k}$ we have the property $\lim_{k \rightarrow \infty} f(x_k) = +\infty$
+-----for any sequence $\{x_k\}$ we have the property $\lim_{k \rightarrow \infty} f(x_k) = +\infty$
 
 
 Problem: min $f(x)$, $x \in R^n$, $f \in C$ has a solution if...
@@ -235,27 +235,27 @@ Generic optimisation algorithm assumptions
 
 
 Optimisation algorithm (most generic definition)
------An optimisation algorithm is a sequence ${x_k}$ obtained from $x_0$ which has some convergence properties with respect to set $\Omega$ (the set of stationary points).
+-----An optimisation algorithm is a sequence $\{x_k\}$ obtained from $x_0$ which has some convergence properties with respect to set $\Omega$ (the set of stationary points).
 
 
 Optimisation algorithm (second most generic definition)
 -----1) Given $x_k$  2) Check if $x_k \in \Omega$, and if yes stop  3) Select a direction $d_k$  4) Select a step $\alpha_k$ along $d_k$  5) Pick $x_k+1 = x_k+ \alpha_k d_k$  6) Repeat
 
 
-Issues with sequence ${x_k}$ given $a_k$ and $d_k$:
------- existence of limit points for ${x_k}$, behaviour of the limit points in relation to $\Omega$, speed of convergence to $\Omega$
+Issues with sequence $\{x_k\}$ given $a_k$ and $d_k$:
+-----Existence of limit points for $\{x_k\}$, behaviour of the limit points in relation to $\Omega$, speed of convergence to $\Omega$
 
 
 Bounded Sequence
------A sequence $X = {x_n}$ of real numbers is said to be bounded if there exists a real number $M > 0$ such that $|x_n| \leq M \forall n \in N$.
+-----A sequence $X = \{x_n\}$ of real numbers is said to be bounded if there exists a real number $M > 0$ such that $|x_n| \leq M \forall n \in N$.
 
 
 Which kind of sequence has converging subsequences?
 -----Bounded sequences
 
 
-Descent condition: If $f(x_k+1)$ is always [] than $f(x_k)$ then ${x_k}$ belongs to the level set $L(f(x_0))$ which means $||x_k|| \leq M$ which means the sequence is [] and there are [] subsequences.
------Descent condition: If $f(x_k+1)$ is always smaller than $f(x_k)$ then ${x_k}$ belongs to the level set $L(f(x_0))$ which means $||x_k|| \leq M$ which means the sequence is bounded and there are converging subsequences.
+Descent condition: If $f(x_k+1)$ is always [] than $f(x_k)$ then $\{x_k\}$ belongs to the level set $L(f(x_0))$ which means $||x_k|| \leq M$ which means the sequence is [] and there are [] subsequences.
+-----Descent condition: If $f(x_k+1)$ is always smaller than $f(x_k)$ then $\{x_k\}$ belongs to the level set $L(f(x_0))$ which means $||x_k|| \leq M$ which means the sequence is bounded and there are converging subsequences.
 
 
 Condition of angle
