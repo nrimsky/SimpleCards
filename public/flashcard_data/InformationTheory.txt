@@ -336,15 +336,15 @@ For a memoryless channel, $p(y_n | x_{1:n}, y_{1: n-1}) =$
 
 
 Binary symmetric channel
------$X = [0 1], Y = [0 1]$ $Q = \begin{pmatrix}1-f&f\\f&1-f\end{pmatrix}$ ($f$ is probability of error)
+-----$X = [0, 1], Y = [0, 1]$ $Q = \begin{pmatrix}1-f&f\\f&1-f\end{pmatrix}$ ($f$ is probability of error)
 
 
 Binary erasure channel
------$X = [0 1], Y = [0 ? 1]$ (? is erasure) $Q = \begin{pmatrix}1-f&f&0\\0&f&1-f\end{pmatrix}$ ($f$ is probability of error)
+-----$X = [0, 1], Y = [0, ?, 1]$ (? is erasure) $Q = \begin{pmatrix}1-f&f&0\\0&f&1-f\end{pmatrix}$ ($f$ is probability of error)
 
 
 Z channel
------$X = [0 1], Y = [0 1]$ $Q = \begin{pmatrix}1&0\\f&1-f\end{pmatrix}$ ($f$ is probability of error)
+-----$X = [0, 1], Y = [0, 1]$ $Q = \begin{pmatrix}1&0\\f&1-f\end{pmatrix}$ ($f$ is probability of error)
 
 
 Difference between symmetric and weakly symmetric channels
@@ -377,3 +377,35 @@ Capacity of binary symmetric channel
 
 Capacity of binary erasure channel
 -----$C = 1 - f$
+
+
+For large $n$, an average input sequence $x_{1:n}$ corresponds to about [] typical output sequences.
+-----For large $n$, an average input sequence $x_{1:n}$ corresponds to about $2^{nH(y|x)}$ typical output sequences.
+
+
+Maximum number of distinct sets of output sequences is [] so we can send [] bits per channel use
+-----Maximum number of distinct sets of output sequences is $2^{n(H(y) - H(y|x))} = 2^{nI(y;x)}$ so we can send $I(y;x)$ bits per channel use
+
+
+$\mathbf{x}, \mathbf{y}$ is the i.i.d sequence $\{ x_i, y_i \}$ for $1 \leq i \leq n$. Then the probability of a particular sequence $p(\mathbf{x}, \mathbf{y})$ is:
+-----$p(\mathbf{x}, \mathbf{y}) = \prod_{i=1}^N p(x_i, y_i)$
+
+
+Jointly Typical Set 
+-----$J_\epsilon^{(n)} = \{ \mathbf{x}, \mathbf{y} \in XY^n : |-n^{-1} \log p(\mathbf{x}, \mathbf{y}) - H(x, y)| < \epsilon \}$
+
+
+Size of Jointly Typical Set
+-----$ (1 - \epsilon) 2^{n(H(x,y) - \epsilon)} < |J_\epsilon^{(n)}| \leq 2^{n(H(x,y) + \epsilon)}$
+
+
+Bounds on $p(\mathbf{x}', \mathbf{y}' \in J_\epsilon^{(n)})$ if $p_{x'} = p_x$ and $p_{y'} = p_y$ with $x'$ and $y'$ independent:
+-----$ (1 - \epsilon) 2^{-n(I(x;y) + 3\epsilon)}$ $\leq p(\mathbf{x}', \mathbf{y}' \in J_\epsilon^{(n)})$ $\leq 2^{-n(I(x;y) - 3\epsilon)}$
+
+
+For a discrete memoryless channel with known $\mathbf{Q}_{y|x}$, an $(M, n)$ code is:
+-----A fixed set of $M$ codewords $\mathbf{x}(w) \in X^n$ for $w = 1:M$, A deterministic decoder $g(\mathbf{y}) \in 1:M$
+
+
+The rate of an an $(M, n)$ code
+-----$R = (\log M)/n$ bits/transmission

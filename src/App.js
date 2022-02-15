@@ -64,7 +64,7 @@ function FlashCards(props) {
           </p>
         </div>
         <button onClick={next} className="flashcard-button">
-          Next <b>{"↪"}</b>
+          Next <b>{"→"}</b>
         </button>
         <button onClick={flip} className="flashcard-button">
           Flip <b>{"⇅"}</b>
