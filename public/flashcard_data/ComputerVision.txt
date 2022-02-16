@@ -7,23 +7,25 @@ Why are homogeneous coordinates practical?
 
 
 In homogenous coordinates, the plane at infinity is usually identified with the set of [] [] [] = [] 
------In homogenous coordinates, the plane at infinity is usually identified with the set of points with k = 0
+-----In homogenous coordinates, the plane at infinity is usually identified with the set of points with $k = 0$
 
 
 The conversion of a homogeneous point to its Euclidean equivalent is inherently a [] of the homogenous point onto the [] plane 
------The conversion of a homogeneous point to its Euclidean equivalent is inherently a projection of the homogenous point onto the k = 1 plane
+-----The conversion of a homogeneous point to its Euclidean equivalent is inherently a projection of the homogenous point onto the $k = 1$ plane
 
 
 Translation invariants 
------- Orientation
-- Length
-- Angle
-- Length ratio
-- Parallel lines
+-----
+- Orientation 
+- Length 
+- Angle 
+- Length ratio 
+- Parallel lines 
 
 
 Euclidean transformation invariants 
------- Length
+-----
+- Length 
 - Angle
 - Length ratio
 - Parallel lines
@@ -34,17 +36,18 @@ Similarity transform components
 
 
 Similarity transform invariants 
------- Angle
-- Length Ratio
-- Parallel lines
+-----
+- Angle 
+- Length Ratio 
+- Parallel lines 
 
 
 Difference between similarity and affine transforms 
------Affine transforms allow non-isotropic scaling which means you can scale by different amounts in the x and y directions
+-----Affine transforms allow non-isotropic scaling which means you can scale by different amounts in the $x$ and $y$ directions
 
 
 Affine transforms invariants 
------- Parallel lines
+-----Parallel lines
 
 
 Projective transforms invariants 
@@ -76,7 +79,7 @@ How many correspondences do you need to get the correct affine transformation ma
 
 
 Normalised image plane definition 
------The normalised image plane is parallel to the physical retina (CCD) but located at unit distance ( z = 1) from the pinhole
+-----The normalised image plane is parallel to the physical retina (CCD) but located at unit distance ($z = 1$) from the pinhole
 
 
 Camera calibration (or "resectioning") definition 
@@ -87,18 +90,19 @@ What is the difference between the camera matrix of a perfect camera and a real 
 -----In an ideal pinhole camera, a simple projection matrix is enough, and the only parameter of interest is the focal length. With more complex camera systems, errors resulting from misaligned lenses and deformations in their structures can result in more complex distortions in the final image.
 
 
-The camera [] matrix is derived from the [] and [] parameters of the camera, and is often represented by the series of transformations; e.g., a matrix of camera intrinsic parameters, a 3 × 3 [] matrix, and a [] vector. 
------The camera projection matrix is derived from the intrinsic and extrinsic parameters of the camera, and is often represented by the series of transformations; e.g., a matrix of camera intrinsic parameters, a 3 × 3 rotation matrix, and a translation vector.
+The camera [] matrix is derived from the [] and [] parameters of the camera, and is often represented by the series of transformations; e.g., a matrix of camera intrinsic parameters, a $3 \times 3$ [] matrix, and a [] vector. 
+-----The camera projection matrix is derived from the intrinsic and extrinsic parameters of the camera, and is often represented by the series of transformations; e.g., a matrix of camera intrinsic parameters, a $3 \times 3$ rotation matrix, and a translation vector.
 
 
-How can we break down the camera matrix M? 
------KRt where K is the intrinsic parameters, R is the rotation between the world and camera coordinate systems and t is the translation of the optical centre from the origin of the world coordinates
+How can we break down the camera matrix $M$? 
+-----$KRt$ where $K$ is the intrinsic parameters, $R$ is the rotation between the world and camera coordinate systems and $t$ is the translation of the optical centre from the origin of the world coordinates
 
 
-Given camera matrix M = K[Rt], what are the parameters of interest in K (given a non-perfect camera model)? 
------- Focal length f
-- Principal point $c_0 = (x_0, y_0)$
-- Pixel size $(s_x, s_y)$
+Given camera matrix $M = K[Rt]$, what are the parameters of interest in $K$ (given a non-perfect camera model)? 
+-----
+- Focal length $f$
+- Principal point $c_0 = (x_0, y_0)$ 
+- Pixel size $(s_x, s_y)$ 
 
 
 Principle point definition 
@@ -110,14 +114,16 @@ How to we estimate the camera matrix parameters?
 
 
 How can we get the intrinsic parameters of the camera from the camera matrix? 
------A is first part of M (3x3)
-B is last vector of M (3 x 1)
+-----
+$A$ is first part of $M$ $(3 \times 3)$. 
+$b$ is last vector of $M$ $(3 \times 1)$. 
 
 
 Three camera distortions 
------- Chromatic aberration
-- Spherical aberration
-- Radial distortion
+-----
+- Chromatic aberration 
+- Spherical aberration 
+- Radial distortion 
 
 
 Chromatic aberration 
@@ -149,7 +155,7 @@ Anaglyphs
 
 
 Disparity (stereo vision) 
------The difference in image location of the same 3D point when projected under perspective to two difference cameras. d = xleft - xright
+-----The difference in image location of the same 3D point when projected under perspective to two difference cameras. $d = x_\text{left} - x_\text{right}$
 
 
 How does perception of depth arise? 
@@ -161,8 +167,9 @@ Baseline (stereo vision)
 
 
 What are the 2 main problems of stereo setup? 
------1. Need to know focal length f and baseline b, which involves prior knowledge or camera calibration 
-2. Need to find corresponding point $(x_r, y_r)$ for each $(x_l, y_l)$ which is a correspondence problem
+-----
+1) Need to know focal length $f$ and baseline $b$, which involves prior knowledge or camera calibration 
+2) Need to find corresponding point $(x_r, y_r)$ for each $(x_l, y_l)$ which is a correspondence problem 
 
 
 Epipolar Geometry 
@@ -173,8 +180,8 @@ Epipolar plane
 -----Plane that passes through the point in 3D space and the two camera centres
 
 
-Epipolar plane is the plane connecting C1, C2 and point P. Epipolar plane cuts through [] planes forming epipolar line in each plane. Corresponding points P1 and P2 must lie on their [] []. 
------Epipolar plane is the plane connecting C1, C2 and point P. Epipolar plane cuts through image planes forming epipolar line in each plane. Corresponding points P1 and P2 must lie on their epipolar lines.
+Epipolar plane is the plane connecting $C_1, C_2$ and point $P$. Epipolar plane cuts through [] planes forming epipolar line in each plane. Corresponding points $P_1$ and $P_2$ must lie on their [] []. 
+-----Epipolar plane is the plane connecting $C_1, C_2$ and point $P$. Epipolar plane cuts through image planes forming epipolar line in each plane. Corresponding points $P_1$ and $P_2$ must lie on their epipolar lines.
 
 
 Stereo rectification 
@@ -183,3 +190,29 @@ Stereo rectification
 
 Why is it easier to search for correspondences after stereo rectification? 
 -----After rectification we only need to search for correspondences along horizontal scan line
+
+
+Relation that much hold between point in image a, $x_A$ and point in image b, $x_B$, after stereo rectification
+-----$x_A^T T x_B = 0$ where $T = \begin{pmatrix}0&0&0\\0&0&-b\\0&b&0\end{pmatrix}$ (this only holds if $by_A = by_B$)
+
+
+Line parameterisation used in Hough transform
+-----$x\cos\theta + y\sin\theta = \rho$
+
+
+Hough transform fitting (for lines)
+-----Each point in $x, y$ space defines a curve ($x\cos\theta + y\sin\theta = \rho$) in $\rho, \theta$ space. We then find local maxima in the (often quantised) $\rho, \theta$ (parameter / Hough voiting) space, which define object candidates.
+
+
+High level goal of Hough transform
+-----Given data points, find model parameters to fit to the data
+
+
+General Hough transform steps
+-----
+1) Define model and its parameters 
+2) Derive a formula to obtain parameters values given a data point 
+3) Define quantisation steps and limits of the parameters 
+4) Build accumulative array for the parameter space (Hough space) 
+5) For every data point, compute parameter values and increment the cell in the array that corresponds to these values 
+6) Recover parameter values that correspond to local maxima

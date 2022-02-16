@@ -2,10 +2,6 @@ Entropy in terms of $p$
 -----$E(-\log_{2}(p(x)))$
 
 
-Second moment of distribution
------$E(x^2) = \sigma^2 + \mu^2$
-
-
 The Shannon information content of an outcome is
 -----$\log_{2}(1/p_i) = -\log_{2}(p_i)$
 
@@ -14,8 +10,24 @@ Entropy in terms of sum
 -----$-\sum_{x \in X} p(x) \log_{2}(p(x))$
 
 
-1 nat
------1 nat = $\log_{2}(e)$ bits = 1.44 bits
+$\sum_{n=1}^{\infty}nr^n$
+-----$r/(1-r)^2$
+
+
+$\log_a(x)'$
+-----$\log_a(e)/x = 1/ (x \ln(a))$
+
+
+Maximum value of $H(\mathbf{p})$ where $\mathbf{p}$ is an $n$-dimensional probability vector
+-----$\log_2(n)$, which occurs when all elements of $H(\mathbf{p})$ are equal (uniform distribution).
+
+
+Minimum value of $H(\mathbf{p})$ where $\mathbf{p}$ is an $n$-dimensional probability vector
+-----0, which occurs when only one element of $H(\mathbf{p})$ is non-0. There are $n$ possible vectors of this kind.
+
+
+Average number of yes - no questions need to find $x$ is in the range...
+-----$[H(x), H(x) + 1)$
 
 
 Joint Entropy
@@ -31,7 +43,7 @@ Average Row Entropy
 
 
 $H(X_{1:n})$
------$H(X_{1:n})$ $= \sum_{1 \rightarrow i} H(x_i | x_{1:i-1})$
+-----$H(X_{1:n})$ $= \sum_{i = 1}^{n} H(x_i | x_{1:i-1})$
 
 
 Conditional Mutual Information
@@ -39,7 +51,7 @@ Conditional Mutual Information
 
 
 Chain rule for mutual information
------$I(x_{1:n} ; y) =$ $\sum_{1 \rightarrow i} I(x_i; y | x_{1:i-1})$
+-----$I(x_{1:n} ; y) =$ $\sum_{i = 1}^{n} I(x_i; y | x_{1:i-1})$
 
 
 $|X|$
@@ -50,8 +62,8 @@ Jensen's Inequality
 -----if $h''(x) >(=) 0$, then $E(h(x)) >(=) h(E(x))$
 
 
-Chain rule for 2 variables
------$H(x,y) = H(y|x) + H(x)$
+Chain rule for 2 variables proof
+-----$H(x,y) = E[-\log(p(x,y))] = $ $E[-\log(p(x)p(y|x))] = $ $E[-\log(p(x)) -\log(p(y|x))] = $ $E[-\log(p(x))] + E[-\log(p(y|x))] = $ $H(x) + H(y|x)$
 
 
 Mutual Information Definition
@@ -87,7 +99,7 @@ Information Inequality Corollaries
 
 
 What is the independence bound
------$H(X_{1:n}) = \sum_{1 \rightarrow n}H(X_i | x_{1:i-1})$ $\leq \sum_{1 \rightarrow n}H(X_i)$
+-----$H(X_{1:n}) = \sum_{i = 1}^{n} H(X_i | x_{1:i-1})$ $\leq \sum_{i = 1}^{n} H(X_i)$
 
 
 Entropy of Stochastic process
@@ -155,11 +167,11 @@ How is a code tree used to create an instantaneous code?
 
 
 Kraft Inequality
------Limit of codeword lengths of instantaneous codes. For codeword lengths $l1, l2, ..., l|X|$ the sum $\sum_{i = 1 \rightarrow |X|} D^{-l_i} \leq 1$
+-----Limit of codeword lengths of instantaneous codes. For codeword lengths $l1, l2, ..., l|X|$ the sum $\sum_{i = 1}^{|X|} D^{-l_i} \leq 1$
 
 
 McMillan Inequality
------If uniquely decodable $C$ has codeword lengths $l1, l2, ..., l|X|$ then $\sum_{i = 1 \rightarrow |X|} D^{-l_i} \leq 1$
+-----If uniquely decodable $C$ has codeword lengths $l1, l2, ..., l|X|$ then $\sum_{i = 1}^{|X|} D^{-l_i} \leq 1$
 
 
 Implication of McMillan Inequality
@@ -167,7 +179,7 @@ Implication of McMillan Inequality
 
 
 What is the simplified optimisation problem for finding the optimal codes?
------We simplify by considering non-integer $l_i$. Minimise $\sum_{1 \rightarrow |X|} p(x_i)l_i$ subject to $\sum_{1 \rightarrow |X|} D^{-l_i} = 1$
+-----We simplify by considering non-integer $l_i$. Minimise $\sum_{i = 1}^{|X|} p(x_i)l_i$ subject to $\sum_{i = 1}^{|X|} D^{-l_i} = 1$
 
 
 Bounds on Optimal Code Length

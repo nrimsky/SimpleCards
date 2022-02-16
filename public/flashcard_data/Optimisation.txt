@@ -30,6 +30,10 @@ A set $F \in R^n$ is bounded if...
 -----it is centred in a ball of some radius $R > 0$ centred at the origin
 
 
+A function $f$ of the form $x^TQx + c^Tx$ with $Q > []$ is [] []
+-----A function $f$ of the form $x^TQx + c^Tx$ with $Q > 0$ is radially unbounded
+
+
 $C^1$
 -----If vector $\nabla f$ is defined and continuous then we say $f \in C^1$
 
@@ -150,8 +154,8 @@ Negative semidefinite
 -----$M \leq 0; x^T M x \leq 0 \forall x$
 
 
-Indefinite
------$x^T M x = 0$
+The determinant of a positive definite matrix is always []
+-----The determinant of a positive definite matrix is always []
 
 
 If $M$ is symmetric, all eigenvalues of $M$ are []
@@ -263,7 +267,7 @@ $x \in R^n$ and $L(f(x_0))$ is compact,
 The directions $d_k$ are such that $|\text{det}[d_k/||d_k||,...,d_{k+n-1}/||d_{k+n-1}||]| \geq \sigma$ for some $\sigma > 0$, 
 $lim_{k \rightarrow \infty}{||x_{k+1} - x_k||} = 0$, 
 $f(x_{k+1}) < f(x_k), x \notin \Omega$, 
-The property $lim_{k \rightarrow \infty}\nabla f'(x_k)d_k / ||d_k|| = 0$ holds then...
+The property $lim_{k \rightarrow \infty}\nabla f(x_k)^Td_k / ||d_k|| = 0$ holds then...
 -----$\{x_k\} \in L(f(x_0))$ and any subsequence of $\{x_k\}$ has limit points, 
 $\{f(x_k)\}$ is monotonically non increasing and $lim_{k \rightarrow \infty} f(x) = \bar f$, 
 Any limit point of $\{x_k\}$ is such that $\nabla f(x_k) = 0$
@@ -282,7 +286,7 @@ What is a line search?
 
 
 What conditions does a line search have to impose?
------$f(x_{k + 1}) < f(x_k)$ and $\lim_{k \rightarrow \infty} \nabla f(x_k)'d_k / ||d_k|| = 0$ 
+-----$f(x_{k + 1}) < f(x_k)$ and $\lim_{k \rightarrow \infty} \nabla f(x_k)^Td_k / ||d_k|| = 0$ 
 
 
 What condition should a line search impose whenever possible?
@@ -301,6 +305,10 @@ What conditions to approximate line search methods have to satisfy?
 -----$\alpha_k$ has to guarantee a sufficient reduction of $f$, $\alpha_k$ has to sufficiently distant from 0 
 
 
+How to do exact line search analytically
+-----Express $f(\mathbf{x}_{k+1})$ in terms of $\alpha_{k+1}$ (given we know $f(\mathbf{x}_{k})$) and then minimise $f(\mathbf{x}_{k+1})$ w.r.t $\alpha_{k+1}$ to find optimal $\alpha_{k+1}$
+
+
 Set of points $A$ considered in the Armijo method
 -----$A = \{  \alpha \in R : \alpha = a \sigma^j , j = 0,1,... \}$ ($\alpha > 0$, $\sigma \in (0,1)$)
 
@@ -310,15 +318,15 @@ What set does the $\gamma$ parameter in the Armijo method belong to?
 
 
 Armijo method consists in finding the largest $\alpha \in A$ such that...
------$f(x_k + \alpha d_k) - f(x_k) \leq \gamma \alpha \nabla f(x_k)' d_k$
+-----$f(x_k + \alpha d_k) - f(x_k) \leq \gamma \alpha \nabla f(x_k)^T d_k$
 
 
 Conceptual algorithm for Armijo method 
------1) Set $\alpha = a$ 2) if $f(x_k + \alpha d_k) - f(x_k) \leq \gamma \alpha \nabla f(x_k)' d_k$ set $\alpha = \alpha$ and stop, else 3) Set $\alpha = \sigma \alpha$ and go to 2.
+-----1) Set $\alpha = a$ 2) if $f(x_k + \alpha d_k) - f(x_k) \leq \gamma \alpha \nabla f(x_k)^T d_k$ set $\alpha = \alpha$ and stop, else 3) Set $\alpha = \sigma \alpha$ and go to 2.
 
 
 Main disadvantage of Armijo method
------All points in the set $A$, starting from the point $\alpha = a$, have to be tested until the condition $f(x_k + \alpha d_k) - f(x_k) \leq \gamma \alpha \nabla f(x_k)' d_k$ is fulfilled.
+-----All points in the set $A$, starting from the point $\alpha = a$, have to be tested until the condition $f(x_k + \alpha d_k) - f(x_k) \leq \gamma \alpha \nabla f(x_k)^T d_k$ is fulfilled.
 
 
 Goldstein conditions allow us to find an acceptable $\alpha_k$ in [] []
@@ -326,11 +334,11 @@ Goldstein conditions allow us to find an acceptable $\alpha_k$ in [] []
 
 
 Goldstein conditions state that given $\gamma_1 \in (0, 1)$ and $\gamma_2 \in (0, 1)$ such that $\gamma_1 < \gamma_2$, $\alpha_k$ is any positive number such that...
------$f(x_k + \alpha d_k) - f(x_k) \leq \alpha_k \gamma_1 \nabla f(x_k)' d_k$ and $f(x_k + \alpha d_k) - f(x_k) \geq \alpha_k \gamma_2 \nabla f(x_k)' d_k$
+-----$f(x_k + \alpha d_k) - f(x_k) \leq \alpha_k \gamma_1 \nabla f(x_k)^T d_k$ and $f(x_k + \alpha d_k) - f(x_k) \geq \alpha_k \gamma_2 \nabla f(x_k)^T d_k$
 
 
 Goldstein conditions geometric interpretation
------Selecting $\alpha_k$ as any point such that the corresponding value of $f$ is included between 2 straight lines of slope $\gamma_1 \nabla f(x_k)' d_k$ and $\gamma_2 \nabla f(x_k)' d_k$ and passing through the point (0, \phi(0)).
+-----Selecting $\alpha_k$ as any point such that the corresponding value of $f$ is included between 2 straight lines of slope $\gamma_1 \nabla f(x_k)^T d_k$ and $\gamma_2 \nabla f(x_k)^T d_k$ and passing through the point (0, \phi(0)).
 
 
 How can we do a line search if there is no information on the derivatives of the function $f$?
