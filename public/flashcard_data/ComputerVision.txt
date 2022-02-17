@@ -216,3 +216,22 @@ General Hough transform steps
 4) Build accumulative array for the parameter space (Hough space) 
 5) For every data point, compute parameter values and increment the cell in the array that corresponds to these values 
 6) Recover parameter values that correspond to local maxima
+
+
+When is the generalised Hough transform used?
+-----Finding free form shapes which cannot be parameterised with a small number of parameters 
+
+
+Generalised Hough transform steps for an arbitrary contour
+-----
+1) Choose reference point for the contour (e.g. centre)
+2) For each point on contour remember where it is located wrt reference point (e.g. radius and angle from centre relative to tangent of contour) 
+3) Recognition: whenever you find a contour point, calculate the tangent angle and vote for all possible reference points 
+
+
+Robust loss function $\rho(u, \sigma)$ that is less sensitive to outliers 
+-----$\rho(u, \sigma) = u^2 / (\sigma^2 + u^2)$ where $u$ is the residual of a point w.r.t model parameters $\theta$
+
+
+How to solve problem of outliers in Hough transform
+-----Sample data to find a set of inliers. RANSAC (RANdom SAmple Consensus) is an algorithm for robust fitting of models in presence of many data outliers.

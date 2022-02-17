@@ -1,57 +1,69 @@
-Entropy in terms of $p$
------$E(-\log_{2}(p(x)))$
-
-
-The Shannon information content of an outcome is
------$\log_{2}(1/p_i) = -\log_{2}(p_i)$
+Entropy in terms of expected value
+-----$H(X) = E[-\log(P(X))]$
 
 
 Entropy in terms of sum
------$-\sum_{x \in X} p(x) \log_{2}(p(x))$
+-----$H(X) = -\sum_{i=1}^n P(x_i)\log P(x_i)$
 
 
-$\sum_{n=1}^{\infty}nr^n$
+Shannon information content of an outcome $E$
+-----$I(E) = -\log_{2}(p(E))$
+
+
+$\sum_{n=1}^{\infty}nr^n =$
 -----$r/(1-r)^2$
 
 
-$\log_a(x)'$
+$\log_a(x)' =$
 -----$\log_a(e)/x = 1/ (x \ln(a))$
 
 
-Maximum value of $H(\mathbf{p})$ where $\mathbf{p}$ is an $n$-dimensional probability vector
------$\log_2(n)$, which occurs when all elements of $H(\mathbf{p})$ are equal (uniform distribution).
+Maximum value of $H(P)$ where $P$ is an $n$-dimensional probability vector
+-----$\log_2(n)$, which occurs when all elements of $H(P)$ are equal (uniform distribution).
 
 
-Minimum value of $H(\mathbf{p})$ where $\mathbf{p}$ is an $n$-dimensional probability vector
------0, which occurs when only one element of $H(\mathbf{p})$ is non-0. There are $n$ possible vectors of this kind.
+Minimum value of $H(P)$ where $P$ is an $n$-dimensional probability vector
+-----0, which occurs when only one element of $H(P)$ is non-0. There are $n$ possible vectors of this kind.
 
 
 Average number of yes - no questions need to find $x$ is in the range...
------$[H(x), H(x) + 1)$
+-----$[H(X), H(X) + 1)$
 
 
 Joint Entropy
------$H(x,y) = E[-\log_{2}p(x,y)]$ = $-\sum_{x,y}(p(x,y)\log_{2}p(x,y))$
+-----$H(X, Y) = E[-\log P(X,Y)]$ = $-\sum_{i, j} p(x_i,y_j) \log_{2}p(x_i, y_j)$
 
 
 Conditional Entropy
------$H(Y|X) = E[-\log_{2}P(y|x)]$ $= \sum_{x \in X} p(x)H(Y|X = x)$
+-----$H(Y|X) = E[-\log_{2}P(Y|X)]$ $= -\sum_{i, j}p(y_i, x_j)\log p(y_i | x_j)$
 
 
-Average Row Entropy
------Take the weighted avg of each row using $p(x)$ as a weight
+Chain rule for 2 variables proof
+-----$H(X,Y) = E[-\log(P(X,Y))] = $ $E[-\log(P(X)P(Y|X))] = $ $E[-\log(P(X)) -\log(P(Y|X))] = $ $E[-\log(P(X))] + E[-\log(P(Y|X))] = $ $H(X) + H(Y|X)$
+
+
+Mutual Information is a measure of...
+-----Mutual Information is a measure of the extent to which variables are related
+
+
+Mutual Information
+-----$I(X;Y) = H(X) - H(X|Y) \leq H(X)$
+
+
+In [], mutual information is the amount of [] transmitted through a [] []
+-----In communications, mutual information is the amount of information transmitted through a noisy channel
 
 
 $H(X_{1:n})$
------$H(X_{1:n})$ $= \sum_{i = 1}^{n} H(x_i | x_{1:i-1})$
+-----$H(X_{1:n})$ $= \sum_{i = 1}^{n} H(X_i | X_{1:i-1})$
 
 
 Conditional Mutual Information
------$I(x;y|z) =$ $H(x|z) + H(y|z) - H(x,y|z)$
+-----$I(X;Y|Z) =$ $H(X|Z) + H(Y|Z) - H(X, Y|Z)$
 
 
 Chain rule for mutual information
------$I(x_{1:n} ; y) =$ $\sum_{i = 1}^{n} I(x_i; y | x_{1:i-1})$
+-----$I(X_{1:n} ; Y) =$ $\sum_{i = 1}^{n} I(X_i; Y | X_{1:i-1})$
 
 
 $|X|$
@@ -59,39 +71,23 @@ $|X|$
 
 
 Jensen's Inequality
------if $h''(x) >(=) 0$, then $E(h(x)) >(=) h(E(x))$
-
-
-Chain rule for 2 variables proof
------$H(x,y) = E[-\log(p(x,y))] = $ $E[-\log(p(x)p(y|x))] = $ $E[-\log(p(x)) -\log(p(y|x))] = $ $E[-\log(p(x))] + E[-\log(p(y|x))] = $ $H(x) + H(y|x)$
-
-
-Mutual Information Definition
------a measure of the extent to which variables are related
-
-
-Mutual Information
------$I(x;y) = H(x) - H(x|y) \leq H(x)$
-
-
-In [], mutual information is the amount of [] transmitted through a [] []
------In communications, mutual information is the amount of information transmitted through a noisy channel
+-----$h''(x) >(=) 0 \Rightarrow E[h(x)] >(=) h(E[x])$
 
 
 Relative Entropy definition
 -----A measure of how different two probability mass vectors are
 
 
-Why is $D(p||q)$ not a true distance?
------It is asymmetric between p and q; It does not satisfy the triangle inequality
+Why is $D(P||Q)$ not a true distance?
+-----It is asymmetric between P and Q; It does not satisfy the triangle inequality
 
 
 Relative Entropy formula
------$D(p||q) = \sum_{x \in X} p(x) log [p(x)/q(x)]$
+-----$D(P||Q) = \sum_{x \in \mathcal{X}} P(x) \log [P(x)/Q(x)]$
 
 
 Information (Gibbs') Inequality
------$D(p||q) \geq 0$
+-----$D(P||Q) \geq 0$
 
 
 Information Inequality Corollaries
@@ -99,23 +95,19 @@ Information Inequality Corollaries
 
 
 What is the independence bound
------$H(X_{1:n}) = \sum_{i = 1}^{n} H(X_i | x_{1:i-1})$ $\leq \sum_{i = 1}^{n} H(X_i)$
+-----$H(X_{1:n}) = \sum_{i = 1}^{n} H(X_i | X_{1:i-1})$ $\leq \sum_{i = 1}^{n} H(X_i)$
 
 
 Entropy of Stochastic process
------$H({x_i}) = H(x_1) + H(x_2|x_1) +$ ...
+-----$H(X_i) = H(X_1) + H(X_2|X_1) +$ ...
 
 
 Entropy rate
------$H(X) = lim_{n \rightarrow \infty} \dfrac{1}{n} H(x_{1:n})$ if limit exists
+-----$H(X) = lim_{n \rightarrow \infty} H(X_{1:n})/n$ if limit exists
 
 
 Entropy rate estimates the [] [] per [] []
 -----Entropy rate estimates the additional entropy per new sample
-
-
-Stochastic process ${x_i}$ is stationary iff
------$p(x_{1:n} = a_{1:n}) = p(x_{k+1:n} = a_{1:n})$ $\forall k, n, a_i \in X$
 
 
 If a Markov process is [] and [] then it has [] [] [] distribution $p_s$
@@ -134,12 +126,20 @@ $p_s$ is the eigenvector of [] with $\lambda$ = []
 -----$p_s$ is the eigenvector of $T^T$ with $\lambda = 1$
 
 
+A stochastic process is stationary if...
+-----$P[X_1=x_1, X_2=x_2, ..., X_n = x_n]$ $= P[X_{1+k}=x_1, X_{2+k}=x_2, ..., X_{n+k} = x_n]$ for every $n$, shift $k$ and $x_n \in \mathcal{X}$.
+
+
+A Markov chain is time invariant if...
+-----$P[X_{n+1} = b|X_n = a] = P[X_2 = b|X_1 = a]$ $\forall a, b \in \mathcal{X}$
+
+
 Entropy of stationary process
------$H(x) = lim_{n \rightarrow \infty}H(x_n | x_{1:n-1})$
+-----$H(X) = lim_{n \rightarrow \infty}H(X_n | X_{1:n-1})$
 
 
-Entropy of stationary Markov process
------$H(x) = H(x_n | x_{n-1})$ $= \sum_{i,j} -p_{Si} t_{ij} \log (t_{ij})$
+For a stationary time-invariant Markov process. the entropy rate is given by...
+-----$H(X) = H(X_2|X_1)$
 
 
 Source coding theorem
@@ -151,11 +151,11 @@ Source code
 
 
 $C+$
------$C+$ is a mapping $S+ \rightarrow D+$ formed by concatenating $C(x_i)$ without punctuation
+-----$C+$ is a mapping $S+ \rightarrow D+$ formed by concatenating $C(X_i)$ without punctuation
 
 
 Non singular
------$x_1 != x_2 \rightarrow C(x_1) != C(x_2)$
+-----$X_1 \neq X_2 \rightarrow C(X_1) \neq C(X_2)$
 
 
 Instantaneous / prefix code
@@ -167,11 +167,11 @@ How is a code tree used to create an instantaneous code?
 
 
 Kraft Inequality
------Limit of codeword lengths of instantaneous codes. For codeword lengths $l1, l2, ..., l|X|$ the sum $\sum_{i = 1}^{|X|} D^{-l_i} \leq 1$
+-----Limit of codeword lengths of instantaneous codes. For codeword lengths $l_1, l_2, ..., l_{|X|}$ the sum $\sum_{i = 1}^{|X|} D^{-l_i} \leq 1$
 
 
 McMillan Inequality
------If uniquely decodable $C$ has codeword lengths $l1, l2, ..., l|X|$ then $\sum_{i = 1}^{|X|} D^{-l_i} \leq 1$
+-----If uniquely decodable $C$ has codeword lengths $l_1, l_2, ..., l_{|X|}$ then $\sum_{i = 1}^{|X|} D^{-l_i} \leq 1$
 
 
 Implication of McMillan Inequality
@@ -187,15 +187,15 @@ Bounds on Optimal Code Length
 
 
 Average shortest length
------$H_D(x) \leq L^* < H_D(x) + 1$
+-----$H_D(X) \leq L^* < H_D(X) + 1$
 
 
 Source coding theorem inequality of symbol by symbol encoding
------$H_D(x) \leq E[l(x)] \leq H_D(x) + 1$
+-----$H_D(X) \leq E[l(X)] \leq H_D(X) + 1$
 
 
 Source coding theorem inequality of block encoding
------$n^{-1} E[l(x_{1:n})] \rightarrow H_D(X)$
+-----$n^{-1} E[l(X_{1:n})] \rightarrow H_D(X)$
 
 
 An optimal binary instantaneous code must satisfy $p(x_i) >$ ...
@@ -250,8 +250,8 @@ With a Markov chain $x \to y \to z$, if you know y then [] x gives you no [] [] 
 -----With a Markov chain $x \to y \to z$, if you know y then observing x gives you no additional information about z
 
 
-With a Markov chain $x \to y \to z$, $I(x;z|y) = [] \leftrightarrow H([]) = H([])$
------With a Markov chain $x \to y \to z$, $I(x;z|y) = 0 \leftrightarrow H(z|y) = H(z|x,y)$
+With a Markov chain $x \to y \to z$, $I(X;Z|Y) = [] \leftrightarrow H([]) = H([])$
+-----With a Markov chain $x \to y \to z$, $I(X;Z|Y) = 0 \leftrightarrow H(Z|Y) = H(Z|X,Y)$
 
 
 Recovering [] from a [] is a good model for machine learning / data science task were we want to estimate the [] of something given an [] effect ($x \to y \to z$ where z in an estimate of x)
@@ -263,7 +263,7 @@ Markov chain property is [] $(x \to y \to z \leftrightarrow z \to y \to x)$
 
 
 If $x \to y \to z$, $I([]) \geq I([])$ and $I([]) \geq I([])$
------If $x \to y \to z$, $I(x;y) \geq I(x;z)$ and $I(x;y) \geq I(x;y | z)$
+-----If $x \to y \to z$, $I(X;Y) \geq I(X;Z)$ and $I(X;Y) \geq I(Z;Y | Z)$
 
 
 Data processing theorem in words
@@ -271,28 +271,28 @@ Data processing theorem in words
 
 
 Meaning of "sufficient statistic" given Markov chain $x \to y \to z$
------z contains all the information in y about x; preserves mutual information $I(x;y) = I(x;z)$
+-----z contains all the information in y about x; preserves mutual information $I(X;Y) = I(X;Z)$
 
 
 In information theory, Fano's inequality relates the [] information lost in a [] [] to the [] of the categorisation error. It is used to find a [] [] on the error probability of any decoder as well as the [] [] for minimax risks in density estimation.
 -----In information theory, Fano's inequality relates the average information lost in a noisy channel to the probability of the categorisation error. It is used to find a lower bound on the error probability of any decoder as well as the lower bounds for minimax risks in density estimation.
 
 
-Let the random variables X and Y represent input and output messages with a joint probability $P(x,y)$. Let $e$ represent an occurrence of error; i.e., that $X != X'$, with $X' = f(Y)$ being an approximate version of $X$. Fano's inequality is []
------Let the random variables X and Y represent input and output messages with a joint probability $P(x,y)$. Let e represent an occurrence of error; i.e., that $X != X'$, with $X' = f(Y)$ being an approximate version of $X$. Fano's inequality is
-$H(X|Y) \leq H(P_e)+P(e)\log ( |X| - 1 )$
+Let the random variables X and Y represent input and output messages with a joint probability $P(X,Y)$. Let $e$ represent an occurrence of error; i.e., that $X \neq X'$, with $X' = f(Y)$ being an approximate version of $X$. Fano's inequality is []
+-----Let the random variables X and Y represent input and output messages with a joint probability $P(X,Y)$. Let e represent an occurrence of error; i.e., that $X \neq X'$, with $X' = f(Y)$ being an approximate version of $X$. Fano's inequality is
+$H(X|Y) \leq H(P_e)+p_e\log ( |X| - 1 )$
 
 
 How to use Fano's inequality to compute the lower bound on the probability of error $p_e$
------$p_e \geq \dfrac{H(x|y) - H(p_e)}{\log (|X| - 1)}$
+-----$p_e \geq (H(X|(Y) - H(P_e))/(\log (|X| - 1))$
 
 
 Weaker version of Fano's inequality that does not depend on $p_e$ which can be used to get probability of error
------$p_e \geq \dfrac{H(x|y) - 1}{\log (|X| - 1)}$
+-----$p_e \geq (H(X|(Y) - 1)/(\log (|X| - 1))$
 
 
 Asymptotic Equipartition Principle (AEP)
------Although there are many series of results that may be produced by a random process, the one actually produced is most probably from a loosely defined set of outcomes that all have approximately the same chance of being the one actually realised. $\dfrac{-1}{n \log p(x)}$ convergences in probability to $H(x)$.
+-----Although there are many series of results that may be produced by a random process, the one actually produced is most probably from a loosely defined set of outcomes that all have approximately the same chance of being the one actually realised. $-1 /(n \log P(X)))$ convergences in probability to $H(X)$.
 
 
 Typicality
@@ -308,7 +308,7 @@ A sequence $\{X_n\}$ of random variables converges in probability towards the ra
 
 
 Individual probability of an element of the typical set
------$x \in T_{\epsilon}^{(n)} \Rightarrow \log{p(x)} = -nH(x) \pm n\epsilon$
+-----$x \in T_{\epsilon}^{(n)} \Rightarrow \log{p(x)} = -nH(X) \pm n\epsilon$
 
 
 Total probability in typical set
@@ -316,7 +316,7 @@ Total probability in typical set
 
 
 Size of typical set 
------$(1 - \epsilon)2^{n(H(x) - \epsilon)} \leq |T_{\epsilon}^{(n)}| \leq 2^{n(H(x) - \epsilon)}$
+-----$(1 - \epsilon)2^{n(H(X) - \epsilon)} \leq |T_{\epsilon}^{(n)}| \leq 2^{n(H(X) - \epsilon)}$
 
 
 Channel capacity definition in words
@@ -332,7 +332,7 @@ Channel coding aim
 
 
 Time-Invariant Transition-Probability matrix
------$(Q_{y | x})_{i, j} = p(y = y_j | x = x_i)$ which has size $|X| \times |Y|$
+-----$(Q_{Y | X})_{i, j} = p(Y = y_j | X = x_i)$ which has size $|X| \times |Y|$
 
 
 Sum of rows of Transition-Probability matrix
@@ -368,15 +368,15 @@ Weakly symmetric channel property consequences
 
 
 Capacity of a DMC channel
------$C = \text{max}_{p_x} I(x; y)$
+-----$C = \text{max}_{P_X} I(X; Y)$
 
 
 Capacity for $n$ uses of DMC channel 
------$C^{(n)} = (1/n) \text{max}_{p_{x_{1:n}}} I(x_{1:n}; x_{1:n})$
+-----$C^{(n)} = (1/n) \text{max}_{P_{X_{1:n}}} I(X_{1:n}; Y_{1:n})$
 
 
 How to maximise $n$-use channel capacity
------We can maximise $I(\textbf{x};\textbf{y})$ by maximising each $I(x_i; y_i)$ independently and taking $x_i$ to be iid.
+-----We can maximise $I(X;Y)$ by maximising each $I(X_i; Y_i)$ independently and taking $X_i$ to be iid.
 
 
 Capacity of weakly symmetric channel
@@ -391,12 +391,12 @@ Capacity of binary erasure channel
 -----$C = 1 - f$
 
 
-For large $n$, an average input sequence $x_{1:n}$ corresponds to about [] typical output sequences.
------For large $n$, an average input sequence $x_{1:n}$ corresponds to about $2^{nH(y|x)}$ typical output sequences.
+For large $n$, an average input sequence $X_{1:n}$ corresponds to about [] typical output sequences.
+-----For large $n$, an average input sequence $X_{1:n}$ corresponds to about $2^{nH(Y|X)}$ typical output sequences.
 
 
 Maximum number of distinct sets of output sequences is [] so we can send [] bits per channel use
------Maximum number of distinct sets of output sequences is $2^{n(H(y) - H(y|x))} = 2^{nI(y;x)}$ so we can send $I(y;x)$ bits per channel use
+-----Maximum number of distinct sets of output sequences is $2^{n(H(Y) - H(Y|X))} = 2^{nI(Y;X)}$ so we can send $I(Y;X)$ bits per channel use
 
 
 $\mathbf{x}, \mathbf{y}$ is the i.i.d sequence $\{ x_i, y_i \}$ for $1 \leq i \leq n$. Then the probability of a particular sequence $p(\mathbf{x}, \mathbf{y})$ is:

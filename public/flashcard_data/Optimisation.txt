@@ -11,7 +11,7 @@ Given $P_1$, a point $x \in F$ is a local minimiser if
 
 
 Given $P_1$, a point $x \in F$ is a local minimiser if
------There exists a $\rho > 0$ such that $f(x) < f(y) \forall y \in F$, $y != x$ and $||y-x|| < \rho$
+-----There exists a $\rho > 0$ such that $f(x) < f(y) \forall y \in F$, $y \neq x$ and $||y-x|| < \rho$
 
 
 Theorem: Let $f: R^n \rightarrow R$. Assume that $f$ is [] ($C^0$). Suppose that $F$ is []. Then there exists a [] [] for $f \in F$.
@@ -75,7 +75,7 @@ Why in theory would you need to naively test infinitely many points to determine
 
 
 Given continuous $f: R^n \rightarrow R$, $x^*$ and $d$. What are the conditions for $d$ to be a descent direction for $f$ at $x^*$?
------$\nabla^T f(x^*) d \leq \nabla f(x^*)$, $d != 0$
+-----$\nabla^T f(x^*) d \leq \nabla f(x^*)$, $d \neq 0$
 
 
 Directional derivative of $f$ along $d$ at $x$
@@ -111,7 +111,7 @@ A saddle point is a [] in one [] and a [] in another []
 
 
 Why is $\nabla f(x^*) = 0$ for all local minimisers? (proof by contradiction)
------Given $x^*$ and suppose it is a local minimiser. Suppose $\nabla f(x^*) != 0$. Then I can find a descent direction for $f$ at $x^*$, for example $d = -\nabla f(x^*)$. This means that close to $x^*$ there are points $x'$ such that $f(x') < f(x^*) \Rightarrow x^* $ is not a minimum (contradiction).
+-----Given $x^*$ and suppose it is a local minimiser. Suppose $\nabla f(x^*) \neq 0$. Then I can find a descent direction for $f$ at $x^*$, for example $d = -\nabla f(x^*)$. This means that close to $x^*$ there are points $x'$ such that $f(x') < f(x^*) \Rightarrow x^* $ is not a minimum (contradiction).
 
 
 How do we remove saddle points for the candidate optimal solutions?
@@ -143,7 +143,7 @@ Positive semidefinite
 
 
 Positive definite
------$M > 0; x^T M x > 0 \forall x != 0$
+-----$M > 0; x^T M x > 0 \forall x \neq 0$
 
 
 Negative definite
@@ -206,8 +206,8 @@ $f(y) - f(x^*)$
 -----$1/2 (y - x^* )^T \nabla^2 f(\xi) (y - x^* )$ (Lagrange remainder of Taylor series expansion)
 
 
-$f(y) - f(x^*)$ is [] [] for $y != x^* $. This means that $f(y)$ [] $f(x^*) \forall y != x^* $. Hence $x^*$ is a [] [] of $f$.
------$f(y) - f(x^*)$ is strictly positive for $y != x^* $. This means that $f(y) > f(x^*) \forall y != x^* $. Hence $x^*$ is a local minimiser of $f$.
+$f(y) - f(x^*)$ is [] [] for $y \neq x^* $. This means that $f(y)$ [] $f(x^*) \forall y \neq x^* $. Hence $x^*$ is a [] [] of $f$.
+-----$f(y) - f(x^*)$ is strictly positive for $y \neq x^* $. This means that $f(y) > f(x^*) \forall y \neq x^* $. Hence $x^*$ is a local minimiser of $f$.
 
 
 Sufficient conditions of optimality provide a [] of the []. This is because we may have a non-strict minimiser or additional minimisers.
