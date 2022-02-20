@@ -58,6 +58,10 @@ $H(X_{1:n})$
 -----$H(X_{1:n})$ $= \sum_{i = 1}^{n} H(X_i | X_{1:i-1})$
 
 
+$H(X_{1:n})$ given $X_i$ is i.i.d.
+-----$H(X_{1:n}) = nH(X_i)$
+
+
 Conditional Mutual Information
 -----$I(X;Y|Z) =$ $H(X|Z) + H(Y|Z) - H(X, Y|Z)$
 

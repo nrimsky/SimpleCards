@@ -338,7 +338,7 @@ Goldstein conditions state that given $\gamma_1 \in (0, 1)$ and $\gamma_2 \in (0
 
 
 Goldstein conditions geometric interpretation
------Selecting $\alpha_k$ as any point such that the corresponding value of $f$ is included between 2 straight lines of slope $\gamma_1 \nabla f(x_k)^T d_k$ and $\gamma_2 \nabla f(x_k)^T d_k$ and passing through the point (0, \phi(0)).
+-----Selecting $\alpha_k$ as any point such that the corresponding value of $f$ is included between 2 straight lines of slope $\gamma_1 \nabla f(x_k)^T d_k$ and $\gamma_2 \nabla f(x_k)^T d_k$ and passing through the point $(0, \phi(0))$.
 
 
 How can we do a line search if there is no information on the derivatives of the function $f$?
@@ -354,4 +354,8 @@ Newton's method for the minimisation of $f$ can be derived assuming that, given 
 
 
 Simple Newton's method algorithm for minimising $f$
------0) Given $x_0 \in R^n$ 1) Set $k = 0$ 2) Compute $s = -[\nabla^2 f(x_k)]^{-1} \nabla f(x_k)$ 3) Set $x_k = x_k + s, k = k + 1$ and go to step 2
+-----0) Given $x_0 \in R^n$ 1) Set $k = 0$ 2) Compute $s = -[\nabla^2 f(x_k)]^{-1} \nabla f(x_k)$ 3) Set $x_{k+1} = x_k + s, k = k + 1$ and go to step 2
+
+
+Way to check if quadratic speed of convergence?
+-----Convergence quadratic if $\epsilon_{k+1}/\epsilon_k^2 = |x_{k+1} - x^*|/|x_k - x^*|^2 = 1$
