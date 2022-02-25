@@ -38,6 +38,10 @@ Conditional Entropy
 -----$H(Y|X) = E[-\log_{2}P(Y|X)]$ $= -\sum_{i, j}p(y_i, x_j)\log p(y_i | x_j)$
 
 
+Uniform bound on entropy
+-----$H(X) \leq \log(|X|)
+
+
 Chain rule for 2 variables proof
 -----$H(X,Y) = E[-\log(P(X,Y))] = $ $E[-\log(P(X)P(Y|X))] = $ $E[-\log(P(X)) -\log(P(Y|X))] = $ $E[-\log(P(X))] + E[-\log(P(Y|X))] = $ $H(X) + H(Y|X)$
 
@@ -48,10 +52,6 @@ Mutual Information is a measure of...
 
 Mutual Information
 -----$I(X;Y) = H(X) - H(X|Y) \leq H(X)$
-
-
-In [], mutual information is the amount of [] transmitted through a [] []
------In communications, mutual information is the amount of information transmitted through a noisy channel
 
 
 $H(X_{1:n})$
@@ -164,6 +164,18 @@ Non singular
 
 Instantaneous / prefix code
 -----No codeword is a prefix of another; can be decoded instantaneously without reference to future codewords
+
+
+Instantaneous code $\rightarrow$ [] [] code $\rightarrow$ [] code 
+-----Instantaneous code $\rightarrow$ Uniquely decodable code $\rightarrow$ Non-singular code 
+
+
+Uniquely decodable code definition
+-----A term usually applied to variable-length codes: ensures that codewords can be recognized unambiguously. Eg: symbol A can be distinguised from any other symbol B and any other arbitrary sequence CD.
+
+
+Non-singular code definition
+-----A code is non-singular if each source symbol is mapped to a different non-empty bit string, i.e. the mapping from source symbols to bit strings is injective. $X_1 \neq X_2 \rightarrow C(X_1) \neq C(X_2)$
 
 
 How is a code tree used to create an instantaneous code?
@@ -288,11 +300,11 @@ $H(X|Y) \leq H(P_e)+p_e\log ( |X| - 1 )$
 
 
 How to use Fano's inequality to compute the lower bound on the probability of error $p_e$
------$p_e \geq (H(X|(Y) - H(P_e))/(\log (|X| - 1))$
+-----$p_e \geq (H(X|Y) - H(P_e))/(\log (|X| - 1))$
 
 
 Weaker version of Fano's inequality that does not depend on $p_e$ which can be used to get probability of error
------$p_e \geq (H(X|(Y) - 1)/(\log (|X| - 1))$
+-----$p_e \geq (H(X|Y) - 1)/(\log (|X| - 1))$
 
 
 Asymptotic Equipartition Principle (AEP)

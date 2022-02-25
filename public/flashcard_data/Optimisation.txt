@@ -155,7 +155,7 @@ Negative semidefinite
 
 
 The determinant of a positive definite matrix is always []
------The determinant of a positive definite matrix is always []
+-----The determinant of a positive definite matrix is always positive
 
 
 If $M$ is symmetric, all eigenvalues of $M$ are []
@@ -359,3 +359,7 @@ Simple Newton's method algorithm for minimising $f$
 
 Way to check if quadratic speed of convergence?
 -----Convergence quadratic if $\epsilon_{k+1}/\epsilon_k^2 = |x_{k+1} - x^*|/|x_k - x^*|^2 = 1$
+
+
+Given a matrix $Q = Q^T$, the vectors $d_1$ and $d_2$ are said to by Q-conjugate if...
+-----$d^T_1 Q d_2 = 0$
