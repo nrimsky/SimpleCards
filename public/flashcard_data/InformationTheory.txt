@@ -437,3 +437,19 @@ For a discrete memoryless channel with known $\mathbf{Q}_{y|x}$, an $(M, n)$ cod
 
 The rate of an an $(M, n)$ code
 -----$R = (\log M)/n$ bits/transmission
+
+
+If $R > C$, there exists a code whose [] probability tends to []
+-----If $R > C$, there exists a code whose error probability tends to 0
+
+
+Using Fano's inequality we can show that as soon as the rate $R$ exceeds channel capacity $C$ then the error probability has a lower bound of...
+-----$1 - C/R$
+
+
+A $(2^{nR}, n)$ feedback code is:
+-----A sequence of mappings $x_i = x_i(w, y_{1:i-1})$ for $i = 1:n$, a decoding function $\hat w = g(y_{1:n})$
+
+
+Does adding feedback increase the channel capacity of a DMC (Discrete memoryless channel)?
+-----No, $C_{FB} = C$

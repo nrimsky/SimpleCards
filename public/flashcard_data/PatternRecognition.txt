@@ -1,0 +1,50 @@
+PCA creates new [] that maximise [] between data-points 
+-----PCA creates new dimensions that maximise variance between data-points 
+
+
+Given covariance matrix $S$ and principal component $u_1$, what is the projected variance?
+-----$J = u_1^T S u_1$ 
+
+
+In PCA, to maximise projection variance, we wish to choose the [] of $S$ (the covariance matrix) with the $M$ [] []
+-----In PCA, to maximise projection variance, we wish to choose the eigenvectors of $S$ (the covariance matrix) with the $M$ largest eigenvalues
+
+
+PCA Steps (high level)
+-----1) Standardise data 2) Compute covariance matrix 3) Calculate eigenvectors and eigenvalues 4) Select feature vector 5) Project data onto principal components
+
+
+What to Scree Plots show?
+-----How variance is distributed across the Principle Components 
+
+
+What can a Scree Plot be used for?
+-----Subjectively finding an "elbow" in the data which enables us to choose number of PCs
+
+
+Difference between Linear Discriminant Analysis and PCA?
+-----PCA maximises variance of all the data while LDA maximises separability of known classes 
+
+
+Is LCA supervised or unsupervised? Why?
+-----Supervised - we provide class information, to "tell" the system where discrimination should occur
+
+
+What are the two high-level objectives of LDA?
+-----1) Maximise distance between projected group means ($m$) 2) Minimise scatter within each group ($s$)
+
+
+Fisher's Linear Discriminant
+-----$J(\textbf{w}) = |\tilde{\textbf{m}}_1 - \tilde{\textbf{m}}_2|^2 / (\tilde{s}_1^2 - \tilde{s}_2^2)$
+
+
+LDA Steps 
+-----1) Standardise the data 
+2) Calculate means (class and overall) 
+3) Compute within-class scatter matrix 
+4) Compute between-class scatter matrix 
+5) Combine scatter matrices 
+6) Compute eigenvectors and eigenvalues 
+7) Sort eigenvalues 
+8) Create feature vector 
+9) Project data

@@ -262,17 +262,6 @@ Condition of angle
 -----A descent direction $d_k$ satisfies a condition of angle if there exists a number $\epsilon > 0$ such that: $\nabla f^T(x_k)d_k \leq -\epsilon ||\nabla f(x_k)|| ||d_k||$
 
 
-Given the problem of minimising $f(x)$ If: 
-$x \in R^n$ and $L(f(x_0))$ is compact, 
-The directions $d_k$ are such that $|\text{det}[d_k/||d_k||,...,d_{k+n-1}/||d_{k+n-1}||]| \geq \sigma$ for some $\sigma > 0$, 
-$lim_{k \rightarrow \infty}{||x_{k+1} - x_k||} = 0$, 
-$f(x_{k+1}) < f(x_k), x \notin \Omega$, 
-The property $lim_{k \rightarrow \infty}\nabla f(x_k)^Td_k / ||d_k|| = 0$ holds then...
------$\{x_k\} \in L(f(x_0))$ and any subsequence of $\{x_k\}$ has limit points, 
-$\{f(x_k)\}$ is monotonically non increasing and $lim_{k \rightarrow \infty} f(x) = \bar f$, 
-Any limit point of $\{x_k\}$ is such that $\nabla f(x_k) = 0$
-
-
 We say thet $\{x_k\}$ has speed of convergence of order $p$ if...
 -----$\lim_{k \rightarrow \infty} (\epsilon_{k + 1} / \epsilon^p_k) = C_p$ with $p \geq 1$ and $0 < C_p < \infty$
 
@@ -294,7 +283,7 @@ What condition should a line search impose whenever possible?
 
 
 The exact line search consists in finding $\alpha_k$ such that...
------$\phi(\alpha_k) \leq \phi(\alpha)$ (f(x_k + \alpha_k d_k) - f(x_k) \leq  f(x_k + \alpha d_k) - f(x_k)) for any $\alpha \geq 0$
+-----$\phi(\alpha_k) \leq \phi(\alpha)$ ( $f(x_k + \alpha_k d_k) - f(x_k) \leq  f(x_k + \alpha d_k) - f(x_k)$ ) for any $\alpha \geq 0$
 
 
 Why do we usually not use exact line search?
@@ -363,3 +352,19 @@ Way to check if quadratic speed of convergence?
 
 Given a matrix $Q = Q^T$, the vectors $d_1$ and $d_2$ are said to by Q-conjugate if...
 -----$d^T_1 Q d_2 = 0$
+
+
+If $d_i \in R^n$ are mutually Q-conjugate, then the vectors $d_i$ are...
+-----Linearly independent
+
+
+A conjugate direction method terminates for a [] [] quadratic in at most [] exact line-searches
+-----A conjugate direction method terminates for a positive definite quadratic in at most $n$ exact line-searches
+
+
+Quasi-Newton method approximate idea 
+-----$x_{k+1} = x_k - \alpha_k H_k \nabla f(x_k)$, $H_{k+1} = H_k + ...$
+
+
+The directions $d_k$ used in Quasi-Newton methods are mutually... 
+-----Q-conjugate

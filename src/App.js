@@ -5,6 +5,7 @@ const FLASHCARD_FILENAMES = [
   "Optimisation.txt",
   "InformationTheory.txt",
   "ComputerVision.txt",
+  "PatternRecognition.txt"
 ];
 
 function getRandomInt(max) {
