@@ -392,3 +392,23 @@ Constrained local minimiser definition
 
 The $i^\text{th}$ inequality constraint $h_i$ is "active" at $\bar{x}$ if...
 -----$h_i(\bar{x}) = 0$
+
+
+What is $I_a(x)$?
+-----The set $I_a(x)$ is the set of all constraints that are active at $x$ (indices of constraints). $h_a(x) = \{h_i(x), i \in I_a(x)\}$
+
+
+What is a regular point?
+-----A point $\bar{x}$ is called a regular point if at $\bar{x}$ the gradient of the active constraints, i.e., $\nabla g_i (\bar{x}), i..m$ and $\nabla h_i (\bar{x}) \forall i \in I_Q(\bar{x})$ are linearly independent
+
+
+Lagrangian
+-----$L(x, \lambda, \rho) = f(x) + \lambda^T g(x) + \rho^T h(x)$
+
+
+First order necessary condition of optimality for constrained optimisation problem $P_0$
+-----If $x^*$ is a local minimiser and regular point, there exists unique multipliers $\lambda^*$, $\rho^*$, such that $\nabla_x L(x^*, \lambda^*, \rho^*) = 0$, $g(x^*) = 0$, $h(x^*) \leq 0$, $\rho^* \geq 0$, $(\rho^*)^T h(x^*) = 0$.
+
+
+Given $P_0$, $x^*$ is a local solution with $\lambda^*, \rho^*$, at $x^*$ the condition of strict complementarity holds if...
+-----$\rho^*_i > 0 \forall i \in I_a(x^*)$
