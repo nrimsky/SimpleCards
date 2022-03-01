@@ -368,3 +368,27 @@ Quasi-Newton method approximate idea
 
 The directions $d_k$ used in Quasi-Newton methods are mutually... 
 -----Q-conjugate
+
+
+What is the canonical from of the constrained optimisation problem $P_0$?
+-----$\text{min}_x f(x)$, $p(x) = 0$, $h(x) \leq 0$
+
+
+How can we write an equality constraint in terms of an inequality constraint?
+-----$g(x) = 0$ goes to $g(x) \leq 0$, $g(x) \geq 0$ ($m$ equality constraints can be written as $2m$ inequality constraints)
+
+
+How can we write an inequality constraint in terms of an equality constraint?
+-----$h(x) \leq 0$ goes to $h(x) + \textbf{y}^2 = 0$ where $\textbf{y}$ is a slack variable
+
+
+An open ball with centre $x^*$ and radius $\theta$ is the set...
+-----$B(x^*, \theta) = \{x \in R^n : ||x - x^*|| < \theta\}$
+
+
+Constrained local minimiser definition
+-----A point $x^* \in \mathcal{X}$ is a constrained local minimiser for $P_0$ if $\exists \theta > 0: f(y) \geq f(x^*) \forall y \in \mathcal{X} \cap B(x^*, \theta)$
+
+
+The $i^\text{th}$ inequality constraint $h_i$ is "active" at $\bar{x}$ if...
+-----$h_i(\bar{x}) = 0$

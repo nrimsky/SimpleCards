@@ -39,7 +39,7 @@ Conditional Entropy
 
 
 Uniform bound on entropy
------$H(X) \leq \log(|X|)
+-----$H(X) \leq \log(|X|)$
 
 
 Chain rule for 2 variables proof
@@ -144,6 +144,10 @@ Entropy of stationary process
 
 For a stationary time-invariant Markov process. the entropy rate is given by...
 -----$H(X) = H(X_2|X_1)$
+
+
+How to find stationary distribution of 2D Markov Process?
+-----Solve $T^T \begin{pmatrix}a\\1-a\end{pmatrix} = \begin{pmatrix}a\\1-a\end{pmatrix}$
 
 
 Source coding theorem
