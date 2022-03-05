@@ -15,7 +15,7 @@ function getRandomInt(max) {
 function FlashCards(props) {
   const [front, setFront] = useState(true);
   const [seeList, setSeeList] = useState(false);
-  const [idx, setIdx] = useState(getRandomInt(props.cards.length));
+  const [idx, setIdx] = useState(props.cards.length-1);
   const flip = () =>
     setFront((f) => {
       return !f;

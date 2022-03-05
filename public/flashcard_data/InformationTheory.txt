@@ -26,7 +26,7 @@ Minimum value of $H(P)$ where $P$ is an $n$-dimensional probability vector
 -----0, which occurs when only one element of $H(P)$ is non-0. There are $n$ possible vectors of this kind.
 
 
-Average number of yes - no questions need to find $x$ is in the range...
+Average number of yes - no questions need to find $x$ is in the range ...
 -----$[H(X), H(X) + 1)$
 
 
@@ -46,7 +46,7 @@ Chain rule for 2 variables proof
 -----$H(X,Y) = E[-\log(P(X,Y))] = $ $E[-\log(P(X)P(Y|X))] = $ $E[-\log(P(X)) -\log(P(Y|X))] = $ $E[-\log(P(X))] + E[-\log(P(Y|X))] = $ $H(X) + H(Y|X)$
 
 
-Mutual Information is a measure of...
+Mutual Information is a measure of ...
 -----Mutual Information is a measure of the extent to which variables are related
 
 
@@ -103,7 +103,7 @@ What is the independence bound
 
 
 Entropy of Stochastic process
------$H(X_i) = H(X_1) + H(X_2|X_1) +$ ...
+-----$H(X_i) = H(X_1) + H(X_2|X_1) + \dots$  
 
 
 Entropy rate
@@ -130,11 +130,11 @@ $p_s$ is the eigenvector of [] with $\lambda$ = []
 -----$p_s$ is the eigenvector of $T^T$ with $\lambda = 1$
 
 
-A stochastic process is stationary if...
------$P[X_1=x_1, X_2=x_2, ..., X_n = x_n]$ $= P[X_{1+k}=x_1, X_{2+k}=x_2, ..., X_{n+k} = x_n]$ for every $n$, shift $k$ and $x_n \in \mathcal{X}$.
+A stochastic process is stationary if ...
+-----$P[X_1=x_1, X_2=x_2,  \dots , X_n = x_n]$ $= P[X_{1+k}=x_1, X_{2+k}=x_2,  \dots , X_{n+k} = x_n]$ for every $n$, shift $k$ and $x_n \in \mathcal{X}$.
 
 
-A Markov chain is time invariant if...
+A Markov chain is time invariant if ...
 -----$P[X_{n+1} = b|X_n = a] = P[X_2 = b|X_1 = a]$ $\forall a, b \in \mathcal{X}$
 
 
@@ -142,7 +142,7 @@ Entropy of stationary process
 -----$H(X) = lim_{n \rightarrow \infty}H(X_n | X_{1:n-1})$
 
 
-For a stationary time-invariant Markov process. the entropy rate is given by...
+For a stationary time-invariant Markov process. the entropy rate is given by ...
 -----$H(X) = H(X_2|X_1)$
 
 
@@ -187,11 +187,11 @@ How is a code tree used to create an instantaneous code?
 
 
 Kraft Inequality
------Limit of codeword lengths of instantaneous codes. For codeword lengths $l_1, l_2, ..., l_{|X|}$ the sum $\sum_{i = 1}^{|X|} D^{-l_i} \leq 1$
+-----Limit of codeword lengths of instantaneous codes. For codeword lengths $l_1, l_2,  \dots , l_{|X|}$ the sum $\sum_{i = 1}^{|X|} D^{-l_i} \leq 1$
 
 
 McMillan Inequality
------If uniquely decodable $C$ has codeword lengths $l_1, l_2, ..., l_{|X|}$ then $\sum_{i = 1}^{|X|} D^{-l_i} \leq 1$
+-----If uniquely decodable $C$ has codeword lengths $l_1, l_2,  \dots , l_{|X|}$ then $\sum_{i = 1}^{|X|} D^{-l_i} \leq 1$
 
 
 Implication of McMillan Inequality
@@ -447,7 +447,7 @@ If $R > C$, there exists a code whose [] probability tends to []
 -----If $R > C$, there exists a code whose error probability tends to 0
 
 
-Using Fano's inequality we can show that as soon as the rate $R$ exceeds channel capacity $C$ then the error probability has a lower bound of...
+Using Fano's inequality we can show that as soon as the rate $R$ exceeds channel capacity $C$ then the error probability has a lower bound of ... 
 -----$1 - C/R$
 
 
@@ -457,3 +457,119 @@ A $(2^{nR}, n)$ feedback code is:
 
 Does adding feedback increase the channel capacity of a DMC (Discrete memoryless channel)?
 -----No, $C_{FB} = C$
+
+
+Polar code encoding complexity
+-----$O(N \log{N})$
+
+
+Polar code successive decoding complexity
+-----$O(N \log{N})$
+
+
+Polar code probability of error 
+-----$2^{-\sqrt{N}}$
+
+
+Polar code generator matrix 
+-----$\textbf{F}_N = \begin{pmatrix}1&0\\1&1\end{pmatrix}^{\bigotimes n}, N = 2^n$ where $\bigotimes n$ denotes the n fold Kronecker product
+
+
+How is polar code generator matrix used?
+-----If $\textbf{u}$ is the length-$N$ input to the encoder then $\textbf{x} = \textbf{u}\textbf{F}_N$ is the codeword
+
+
+What new two channels $W$ during polar coding?
+-----$W^-: U_1 \rightarrow (Y_1, Y_2)$ (worse than $W$) and $W^+: U_2 \rightarrow (Y_1, Y_2, U_1)$ (better than $W$)
+
+
+With polar coding, if $W$ is $\text{BEC}(p)$, what are $W^+$ and $W^-$?
+-----$W^+ = \text{BEC}(p^2)$ and $W^- = \text{BEC}(2p - p^2)$
+
+
+Basic operations of polar coding
+-----Channel combining and splitting
+
+
+Differential entropy 
+-----$h(X) = -\int_{\mathcal{X}} f(x) \log f(x) dx$
+
+
+Differential entropy of univariate Gaussian distribution
+-----$h(X \sim N(\mu, \sigma^2)) = (1/2)\log(2 \pi e \sigma^2)$
+
+
+Matrix equation of multivariate Gaussian 
+-----$X_{1:n} \sim \textbf{N}(\textbf{m}, \textbf{K})$ $\leftrightarrow$ $f(\textbf{x}) = |2\pi\textbf{K}|^{-1/2}e^{-(1/2)(\textbf{x} - \textbf{m})^T K^{-1}(\textbf{x} - \textbf{m})}$
+
+
+Differential entropy of multivariate Gaussian distribution
+-----$h(X_{1:n} \sim \textbf{N}(\textbf{m}, \textbf{K})) = (1/2)\log( (2 \pi e)^n |\textbf{K}|)$
+
+
+What distribution over the finite range $(a,b)$ miximises the differential entropy?
+-----A uniform distribution $u(x) = (b-a)^{-1}$
+
+
+What zero-mean distribution maximises the entropy on $(-\infty, \infty)^n$ for given covariance matrix $\textbf{K}$?
+-----A multivariate Gaussian $\phi(\textbf{x}) = |2\pi\textbf{K}|^{-1/2}e^{-(1/2)\textbf{x}^T \textbf{K}^{-1}\textbf{x}}$
+
+
+Gaussian channel definition 
+-----A Gaussian channel is a time-discrete channel with output $Y_i$, input $X_i$ and noise $Z_i \sim N(0, N)$ at time $i$ such that $Y_i = X_i +Z_i$
+
+
+What is the power constraint of a gaussian channel?
+-----$E[X^2_i] \leq P$
+
+
+The information capacity of a Gaussian channel with power constraint $P$ and noise variance $N$ is ... 
+-----$C = \text{max}_{E[X^2_i] \leq P} I(X; Y)$ $= (1/2)\log(1 + P/N)$
+
+
+Gaussian channel coding theorem 
+-----$R$ is achievable iff $R < C = (1/2)\log(1 + P/N)$
+
+
+Capacity of channel bandlimited to $f \in (_W, W)$ and signal duration $T$
+-----$C = W \log (1 + P/WN_0)$
+
+
+What is a possible model for nonwhite noise wideband channel where each component represents a different frequency?
+-----$n$ independent Gaussian channels 
+
+
+Average power constraint for parallel gaussian channels?
+-----$E[\textbf{x}^T\textbf{x}] \leq nP$
+
+
+Does feedback add capacity to gaussian channels?
+-----White noise (& DMC) - No, Coloured noise - Not much
+
+
+What is the optimisation objective for parallel Gaussian channels?
+-----To distribute the total power among channels so as to maximize the capacity.
+
+
+Information capacity of parallel Gaussian channel
+-----$I(X_{1:k}; Y_{1:k}) \leq \sum_j (1/2) \log{(1 + P_j / N_j)}$ where $P_j = E[X_j^2]$
+
+
+When is information capacity reached by parallel Gaussian channels?
+-----$(X_1,  \dots , X_k) \sim$ $\mathcal{N}(0, \begin{pmatrix}P_1&0& \dots &0\\0&P_2& \dots &0\\ \vdots & \vdots & \ddots & \vdots \\0&0& \dots &P_k \end{pmatrix})$ where $P_i = \begin{cases}\nu-N_i&\text{if } \nu \geq N_i \\ 0&\text{if } \nu < N_i \end{cases}$. $\nu$ is chosen so that $\sum_{j=1}^k (\nu - N_j)^+ = P$.
+
+
+Maximum information capacity of parallel Gaussian channels?
+-----$C = \sum_{j=1}^k (1/2) \log (1 + (\nu - N_j)^+ / N_j)$ where $\nu$ is chosen so that $\sum_{j=1}^k (\nu - N_j)^+ = P$.
+
+
+Maximum information capacity of parallel channels with coloured Gaussian noise?
+-----$C = $$(1/n) \sum_{i=1}^n (1/2) \log (1 + (\nu - \lambda_i)^+ / \lambda_i)$ where $\nu$ is chosen so that $\sum_{i=1}^n (\nu - \lambda_i)^+ = nP$ and $\lambda_i$ are the eigenvalues of $K_Z$.
+
+
+How does feedback affect independence of signal and noise?
+-----Because of feedback, $X^n$ and $Z^n$ are not independent; $X_i$ is causally dependent on the past values of $Z$.
+
+
+Gaussian channel capacity is not increased by more than [] or by more than a factor [] when we have feedback.
+-----Gaussian channel capacity is not increased by more than half a bit or by more than a factor 2 when we have feedback.
