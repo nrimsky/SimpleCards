@@ -48,3 +48,54 @@ LDA Steps
 7) Sort eigenvalues 
 8) Create feature vector 
 9) Project data
+
+
+K Means steps 
+-----1) Randomly initialise $k$ centroids 
+2) Assign each datapoint to the nearest centroid 
+3) Calculate the means of the datapoints in each cluster 
+4) Update the centroids to be the means calculated in 3) 
+5) Repeat from step 2 to 4 until values converge 
+
+
+What is the elbow method to determine the number of clusters to use in K-Means?
+-----Measure the sum of squared distances from data points to associated centroids - this value decreases as $k$ increases. Plotting this allows us to find an "elbow" which can help us choose a value of $k$
+
+
+Is the Agglomerative Algorithm a top-down or bottom-up hierarchical clustering approach?
+-----Bottom-up; each observation starts in its own cluster
+
+
+Is Divisive Clustering a top-down or bottom-up hierarchical clustering approach?
+-----Top-down; all observations start in one cluster, that cluster is then split recursively
+
+
+How do you read a Dendrogram?
+-----Dendrograms are representations of hierarchies - horizontal links are connections, Y-Axis is Distance between connections, Height of connections is important - the lower the branch the smaller the distance.
+
+
+Problems with decision trees
+-----Highly dependent on training data - tend to overfit and not generalise well 
+
+
+What is ensemble learning?
+-----Using a combination of weak classifiers to create a stronger overall classifier 
+
+
+Why do we use ensemble learning with decision trees?
+-----Reduces the effect of one classifier (decision tree) overfitting the data 
+
+
+What is a bagging in decision trees?
+-----Bagging (Bootstrap Aggregation) is used to reduce the variance of a decision tree. 
+Several subsets of data are created by sampling the dataset randomly with replacement. 
+Each subset is used to train different decision trees, which are aggregated in the final model.
+
+
+What is the random forest technqiue?
+-----A random forest is an ensemble model of multiple decision trees, where each tree is trained on a different randomly sampled "bag" of data. 
+Feature bagging is also used which means that each candidate split in the learning process uses a random subset of the features. 
+
+
+What is out-of-bag error?
+-----The proportion of all out-of-bag samples that were misclassified
