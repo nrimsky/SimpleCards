@@ -99,3 +99,15 @@ Feature bagging is also used which means that each candidate split in the learni
 
 What is out-of-bag error?
 -----The proportion of all out-of-bag samples that were misclassified
+
+
+Why is AdaBoost "adaptive"?
+-----Subsequent weak learners are tweaked in favor of those instances misclassified by previous classifiers
+
+
+How can boosting be conceptualised as a regression problem?
+-----Boosting is a form of linear regression in which the features of each sample $x_{i}$ are the outputs of some weak learner $h$ applied to $x_{i}$.
+
+
+What is dynamic time warping?
+-----DTW is a method that calculates an optimal match between two given sequences (e.g. time series) with certain restrictions and rules.
