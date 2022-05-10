@@ -1,0 +1,95 @@
+Entropy $H(X)$
+-----$H(X) = -\sum_{i} p(x_i) \log p(x_i)$
+
+
+Joint entropy $H(X, Y)$
+-----$H(X, Y) = -\sum_{i, j} p(x_i, y_j) \log p(x_i, y_j)$
+
+
+Conditional entropy $H(Y | X)$
+-----$H(Y | X) = -\sum_{i, j} p(y_i, x_j) \log p(y_i | x_j)$
+
+
+Mutual information $I(X ; Y)$
+-----$I(X;Y) = H(X) - H(X|Y)$
+
+
+Relative entropy $D(P||Q)$
+-----$D(P||Q) = \sum_{x \in \mathcal{X}} p(x) \log [p(x)/q(x)]$
+
+
+Information (Gibbs’) Inequality
+-----$D(P||Q) = \geq 0$
+
+
+Mutual information in terms of Relative entropy
+-----$I(X;Y) = D(p(X, Y) || p(X)p(Y))$
+
+
+Entropy rate of stationary stochastic process 
+-----$H(X) = \lim_{n \rightarrow \infty} H(X_n | X_{1:n-1})$
+
+
+Entropy rate of stationary Markov process 
+-----$H(X) = H(X_n|X_{n-1}) = -\sum_{i,j}{p_s}_i t_{i,j} \log (t_{i,j})$ where $p_s$ is the stationary distribution
+
+
+Kraft Inequality
+-----$\sum_{i = 1}^{|X|} D^{-l_i} \leq 1$
+
+
+Source coding theorem for symbol-by-symbol encoding
+-----$H(X) \leq E[l(X)] \leq H(X) + 1$
+
+
+Source coding theorem for block encoding
+-----$n^{-1} E[l(X_{1:n})] \rightarrow H(X)$
+
+
+Fano's inequality
+-----$p_e \geq (H(X|Y) - H(p_e))/(\log (|X| - 1))$
+
+
+Fano's inequality (weaker, without $p_e$ on RHS)
+-----$p_e \geq (H(X|Y) - 1)/(\log (|X| - 1))$
+
+
+Formula for $p(x)$, $x \in T_{\epsilon}^{(n)}$
+-----$\log{p(x)} = -nH(X) \pm n\epsilon$
+
+
+Total probability in $T_{\epsilon}^{(n)}$
+-----$p(x \in T_{\epsilon}^{(n)}) \geq 1 - \epsilon$  $\forall$  $n > N_{\epsilon}$
+
+
+Size of $T_{\epsilon}^{(n)}$
+-----$(1 - \epsilon)2^{n(H(X) - \epsilon)} \leq |T_{\epsilon}^{(n)}| \leq 2^{n(H(X) - \epsilon)}$
+
+
+Binary symmetric channel
+-----$X = [0, 1], Y = [0, 1]$ $Q = \begin{pmatrix}1-f&f\\f&1-f\end{pmatrix}$ ($f$ is probability of error)
+
+
+Binary erasure channel
+-----$X = [0, 1], Y = [0, ?, 1]$ (? is erasure) $Q = \begin{pmatrix}1-f&f&0\\0&f&1-f\end{pmatrix}$ ($f$ is probability of error)
+
+
+Z channel
+-----$X = [0, 1], Y = [0, 1]$ $Q = \begin{pmatrix}1&0\\f&1-f\end{pmatrix}$ ($f$ is probability of error)
+
+
+Capacity of weakly symmetric channel
+-----$\log{|Y|} - H(Q_1)$ where $Q_1$ is the row entropy
+
+
+Capacity of binary symmetric channel
+-----$1 - H(f)$
+
+
+Capacity of binary erasure channel
+-----$1 - f$
+
+
+With polar coding, if $W$ is $\text{BEC}(p)$, what are $W^+$ and $W^-$?
+-----$W^+ = \text{BEC}(p^2)$ and $W^- = \text{BEC}(2p - p^2)$
+

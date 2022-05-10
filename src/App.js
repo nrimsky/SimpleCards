@@ -2,11 +2,15 @@ import Latex from "react-latex";
 import { useEffect, useState } from "react";
 
 const FLASHCARD_FILENAMES = [
-  "Optimisation.txt",
+  "InformationTheoryReduced.txt",
   "InformationTheory.txt",
+  "Optimisation.txt",
   "ComputerVision.txt",
-  "PatternRecognition.txt"
+  "PatternRecognition.txt",
 ];
+
+const SPLIT_1 = "\n-----";
+const SPLIT_2 = "\n\n\n";
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
@@ -15,7 +19,7 @@ function getRandomInt(max) {
 function FlashCards(props) {
   const [front, setFront] = useState(true);
   const [seeList, setSeeList] = useState(false);
-  const [idx, setIdx] = useState(props.cards.length-1);
+  const [idx, setIdx] = useState(0);
   const flip = () =>
     setFront((f) => {
       return !f;
@@ -51,6 +55,10 @@ function FlashCards(props) {
         : `(#${idx + 1}/${props.cards.length})`}
     </p>
   );
+
+  if (!(props.curr === props.filename)){
+    return <></>;
+  }
 
   if (!seeList) {
     return (
@@ -106,12 +114,10 @@ function FlashCards(props) {
   );
 }
 
-const SPLIT_1 = "\n-----";
-const SPLIT_2 = "\n\n\n";
-
 function App() {
   const [data, setData] = useState([]);
   const [random, setRandom] = useState(true);
+  const [currSet, setCurrSet] = useState(FLASHCARD_FILENAMES[0]);
 
   async function processTexts(parsedText) {
     const flashData = parsedText.map((t) => {
@@ -131,7 +137,15 @@ function App() {
   return (
     <div>
       <div className="title">
-        <p>Some random flashcards</p>
+        <p>Choose set</p>
+
+        <select value={currSet} onChange={(e) => {setCurrSet(e.target.value)}} className="select">
+          {FLASHCARD_FILENAMES.map((f) => {
+            return <option value={f} key={f}>{f.split(".")[0]}</option>
+          })}
+        </select>
+
+        <p>Ordering</p>
 
         <button
           onClick={() => {
@@ -141,7 +155,7 @@ function App() {
           }}
           className="random-button"
         >
-          {random ? "Order sequentially" : "Order randomly"}
+          {random ? "Sequential" : "Random"}
         </button>
       </div>
 
@@ -152,6 +166,7 @@ function App() {
             key={i}
             filename={FLASHCARD_FILENAMES[i]}
             random={random}
+            curr={currSet}
           />
         );
       })}

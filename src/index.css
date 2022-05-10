@@ -112,3 +112,15 @@ tr:nth-child(even) {
 tr:nth-child(odd) {
   background-color:  rgba(255, 255, 255, 0.4);
 }
+
+.select {
+  display: inline;
+  background-color: #fff;
+  color: #333;
+  padding: 6px;
+  border: 2px solid #333;
+  /* width: 200px; */
+  font-size: 14px;
+  line-height: 1;
+  border-radius: 3px;
+}

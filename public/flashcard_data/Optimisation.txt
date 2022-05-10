@@ -10,10 +10,6 @@ Given $P_1$, a point $x \in F$ is a local minimiser if
 -----There exists a $\rho > 0$ such that $f(x) \leq f(y) \forall y \in F$ and $||y-x|| < \rho$
 
 
-Given $P_1$, a point $x \in F$ is a local minimiser if
------There exists a $\rho > 0$ such that $f(x) < f(y) \forall y \in F$, $y \neq x$ and $||y-x|| < \rho$
-
-
 Theorem: Let $f: R^n \rightarrow R$. Assume that $f$ is [] ($C^0$). Suppose that $F$ is []. Then there exists a [] [] for $f \in F$.
 -----Theorem: Let $f: R^n \rightarrow R$. Assume that $f$ is continuous ($C^0$). Suppose that $F$ is compact. Then there exists a global minimiser for $f \in F$.
 
