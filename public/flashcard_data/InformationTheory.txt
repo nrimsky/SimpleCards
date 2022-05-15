@@ -573,3 +573,7 @@ How does feedback affect independence of signal and noise?
 
 Gaussian channel capacity is not increased by more than [] or by more than a factor [] when we have feedback.
 -----Gaussian channel capacity is not increased by more than half a bit or by more than a factor 2 when we have feedback.
+
+
+High level idea of Slepian-Wolf coding
+-----$X$ is encoded as usual, decoder infers $Y$ to be jointly typical with $X$ and just needs to choose between all jointly typical sequences, therefore less info needed to ascertain which of these is the message from $Y$

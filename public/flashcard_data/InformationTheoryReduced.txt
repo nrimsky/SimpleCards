@@ -93,3 +93,50 @@ Capacity of binary erasure channel
 With polar coding, if $W$ is $\text{BEC}(p)$, what are $W^+$ and $W^-$?
 -----$W^+ = \text{BEC}(p^2)$ and $W^- = \text{BEC}(2p - p^2)$
 
+
+Differential entropy 
+-----$h(X) = -\int_{\mathcal{X}} f(x) \log f(x) dx$
+
+
+Differential entropy of uniform distribution
+-----$h(X) = \log(b - a)$
+
+
+Differential entropy of Gaussian distribution
+-----$h(X) = (1/2)\log(2 \pi e \sigma^2)$
+
+
+Maximum entropy distribution with infinite bounds
+-----Multivariate Gaussian
+
+
+Capacity of a Gaussian channel with power constraint $P$ and noise variance $N$
+-----$C = (1/2)\log(1 + P/N)$
+
+
+Capacity of channel bandlimited to $f \in (_W, W)$ and signal duration $T$
+-----$C = W \log (1 + P/WN_0)$
+
+
+Power constraint for parallel gaussian channels
+-----$E[\textbf{x}^T\textbf{x}] \leq nP$
+
+
+Information capacity of parallel Gaussian channel
+-----$C = \sum_{i=1}^n (1/2) \log (1 + (\nu - N_i)^+ / N_i)$ where $\nu$ is chosen so that $\sum_{i=1}^n (\nu - N_i)^+ = nP$.
+
+
+How does the formula for information capacity change when the noise in parallel Gaussian channels is coloured?
+------Replace $N_i$ with $\lambda_i$ where $\lambda_i$ are the noise covariance matrix eigenvalues
+
+
+Capacity of continuous Gaussian channel 
+-----$C = \int_{-W}^{W}(1/2)\log(1 + (\nu - N(f))^+/N(f))df$
+
+
+$R(D)$ for Bernoulli source
+-----$(H(p) - H(D))^+$
+
+
+$R(D)$ for Gaussian source 
+-----$((1/2)\log(\sigma^2/D))^+$
